@@ -1,0 +1,46 @@
+.marquee-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    .marquee {
+        cursor: default;
+        white-space: nowrap;
+        position: relative;
+        animation: marquee 15s linear infinite;
+        span {
+            font-size: 18px;
+            line-height: 150%;
+            font-style: normal;
+            display: flex;
+            align-items: center;
+            b {
+                font-family: Lato-Bold, sans-serif;
+                line-height: 150%;
+                font-weight: 700;
+                font-style: normal;
+            }
+            .lineGap {
+                width: 20px;
+                height: 2px;
+                margin: 0 4px;
+                background-color: #0e0e0e;
+            }
+        }
+        &:hover {
+            .marquee {
+                animation-play-state: paused;
+            }
+        }
+    }
+    @keyframes marquee {
+        from {
+            transform: translateX(0);
+        }
+        to {
+            transform: translateX(-100%);
+        }
+    }
+}
+
+

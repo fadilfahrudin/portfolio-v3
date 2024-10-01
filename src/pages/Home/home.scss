@@ -1,0 +1,19 @@
+#home{
+    position: relative;
+    height: auto;
+    width: 100%;
+    .introSection__home{
+        flex-shrink: 0;
+        max-width: 60vw;
+        height: 100%;
+        background-color: red;
+    }
+    .imageSection__home{
+        max-width: 40vw;
+        height: 100%;
+        background-color: blue;
+        &:last-child{
+            background-color: green;
+        }
+    }
+}

@@ -1,14 +1,12 @@
-import ReactLenis from 'lenis/react'
-import {Route, Routes} from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom'
+import Home from '../pages/Home'
 export default function MainRouter() {
 
-    return(
+    return (
         <>
-            <ReactLenis root>
-                <Routes>
-                    <Route path='/' element={<h1>Home</h1>} />
-                </Routes>
-            </ReactLenis>
+            <Routes>
+                <Route path='/' element={<Home/>} />
+            </Routes>
         </>
     )
 }
