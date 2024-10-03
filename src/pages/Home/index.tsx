@@ -14,16 +14,22 @@ const Home: React.FC = () => {
         <main id='home'>
             <HorizontalScroll scrollLength={214} widthSection={215}>
                 <section className='introSection__home'>
+                    <nav></nav>
+
+
                     <Marquee>
                         <span>LOCAL TIME &nbsp;<b>07.27 AM UTC/GMT +7 - Saturday, 30 March 2024</b><span className='lineGap'></span><b>STAND WITH PALESTINE</b><span className='lineGap'></span>NEW PROJECT<span className='lineGap'></span></span>
                     </Marquee>
                 </section>
+
                 <motion.section className='imageSection__home' style={{ width: width }}>
                     <h1>image</h1>
                 </motion.section>
+
                 <motion.section className='imageSection__home' style={{ width: width }}>
                     <h1>image</h1>
                 </motion.section>
+
             </HorizontalScroll>
         </main>
     )
