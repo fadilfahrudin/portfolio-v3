@@ -1,16 +1,15 @@
-import React from 'react';
 import './marquee.scss';
-const Marquee = ({ children }: { readonly children: React.ReactNode }) => {
+const Marquee = ({ text }: { text: string[] }) => {
     return (
         <div className="marquee-container" >
             <div className="marquee">
-                {children}
+                <span>LOCAL TIME &nbsp;<b>07.27 AM UTC/GMT +7 - Saturday, 30 March 2024</b><span className='lineGap'></span><b>FREE PALESTINE 🇵🇸</b><span className='lineGap'></span>{text.map((text) => <>{text}<span className='lineGap'></span></>)}</span>
             </div>
             <div className="marquee">
-                {children}
+                <span>LOCAL TIME &nbsp;<b>07.27 AM UTC/GMT +7 - Saturday, 30 March 2024</b><span className='lineGap'></span><b>FREE PALESTINE 🇵🇸</b><span className='lineGap'></span>{text.map((text) => <>{text}<span className='lineGap'></span></>)}</span>
             </div>
             <div className="marquee">
-                {children}
+                <span>LOCAL TIME &nbsp;<b>07.27 AM UTC/GMT +7 - Saturday, 30 March 2024</b><span className='lineGap'></span><b>FREE PALESTINE 🇵🇸</b><span className='lineGap'></span>{text.map((text) => <>{text}<span className='lineGap'></span></>)}</span>
             </div>
         </div>
     );

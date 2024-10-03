@@ -1,13 +1,81 @@
+@use "../../styles/media-query" as media;
 #home{
     position: relative;
     height: auto;
     width: 100%;
     .introSection__home{
         flex-shrink: 0;
-        max-width: 60vw;
+        max-width: 55vw;
         height: 100%;
         background-color: var(--light-200);
         padding: 76px 40px 107px;
+
+        display: flex;
+        flex-direction: column;
+        gap: 138px;
+
+        @include media.ipad{
+            //do something
+        }
+
+        .nav__home{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            .navLink{
+                font-family: 'Lato-Bold', sans-serif;
+                font-size: clamp(8px, 1vw, 14px);
+                font-weight: 600;
+                line-height: 150%;
+                text-decoration: none;
+                color: var(--dark-300);
+                padding: 5px 10px;
+
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                gap: 6px;
+                &::after{
+                    content: '';
+                    display: inline-block;
+                    width: 6px;
+                    height: 6px;
+                    border-radius: 0.5px;
+                    outline: 2px solid var(--dark-300);
+                    background-color: transparent;
+                    transition: width 0.3s ease-in-out;
+                }
+
+                &:hover{
+                    &::after{
+                        background-color: var(--dark-300);
+                        border: 1px solid var(--light-200);
+                    }
+                }
+            }
+        }
+        .introduction__home{
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
+            h1{
+                &.myName{
+                    font-family: 'BebasNeue-Regular', sans-serif;
+                    font-size: clamp(100px, 15.5vw, 256px);
+                    line-height: 100%;
+                    color: var(--dark-400);
+                }
+            }
+            p{
+                &.myDesc{
+                    font-family: 'Lato-Medium', sans-serif;
+                    font-size: clamp(18px, 1.5vw, 26px);
+                    line-height: 150%;
+                    color: var(--dark-200);
+                    text-align: center;
+                }
+            }
+        }
     }
     .imageSection__home{
         max-width: 40vw;

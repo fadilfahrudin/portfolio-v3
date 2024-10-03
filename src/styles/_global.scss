@@ -27,6 +27,91 @@
     --dark-400: #0E0E0E;
 }
 
+// fonts
+@font-face {
+    font-family: 'BebasNeue-Regular';
+    src: url('../assets/fonts/BebasNeue/BebasNeue-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-display: swap;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Lato-Light';
+    src: url('../assets/fonts/Lato/Lato-Light.ttf') format('truetype');
+    font-weight: 200;
+    font-display: swap;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Lato-Regular';
+    src: url('../assets/fonts/Lato/Lato-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-display: swap;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Lato-Medium';
+    src: url('../assets/fonts/Lato/Lato-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-display: swap;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Lato-Bold';
+    src: url('../assets/fonts/Lato/Lato-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-display: swap;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Lato-Black';
+    src: url('../assets/fonts/Lato/Lato-Black.ttf') format('truetype');
+    font-weight: 900;
+    font-display: swap;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Satoshi-Light';
+    src: url('../assets/fonts/Satoshi/Fonts/OTF/Satoshi-Light.otf') format('opentype');
+    font-weight: 200;
+    font-display: swap;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Satoshi-Regular';
+    src: url('../assets/fonts/Satoshi/Fonts/OTF/Satoshi-Regular.otf') format('opentype');
+    font-weight: 400;
+    font-display: swap;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Satoshi-Medium';
+    src: url('../assets/fonts/Satoshi/Fonts/OTF/Satoshi-Medium.otf') format('opentype');
+    font-weight: 500;
+    font-display: swap;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Satoshi-Bold';
+    src: url('../assets/fonts/Satoshi/Fonts/OTF/Satoshi-Bold.otf') format('opentype');
+    font-weight: 700;
+    font-display: swap;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Satoshi-Black';
+    src: url('../assets/fonts/Satoshi/Fonts/OTF/Satoshi-Black.otf') format('opentype');
+    font-weight: 900;
+    font-display: swap;
+    font-style: normal;
+}
+
+
+body {
+    min-width: 320px;
+    min-height: 100vh;
+}
+
 a {
     font-weight: 500;
     color: #646cff;
@@ -34,11 +119,6 @@ a {
 }
 a:hover {
     color: #535bf2;
-}
-
-body {
-    min-width: 320px;
-    min-height: 100vh;
 }
 
 button {

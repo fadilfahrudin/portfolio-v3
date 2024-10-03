@@ -6,20 +6,21 @@ import './pointer.scss';
 export default function Pointer() {
     const ref = useRef(null);
     const { x, y, hovered } = useFollowPointer(ref);
-    const [otherClass, setOtherClass] = useState("");
+    const [hoveredClass, sethoveredClass] = useState("");
     useEffect(() => {
         switch (hovered) {
             case 'img-pointer':
-                setOtherClass('img-pointer-hover');
+                sethoveredClass(hovered);
                 break;
             case '':
-                setOtherClass('');
+                sethoveredClass('default-pointer');
                 break;
             default:
+                sethoveredClass('default-pointer');
                 break;
         }
     }, [hovered])
-    return <motion.div
-        ref={ref} className={`box ${otherClass}`} style={{ x, y }}
+    return  <motion.div
+        ref={ref} className={`pointer ${hoveredClass}`} style={{ x, y }}
     />
 }
