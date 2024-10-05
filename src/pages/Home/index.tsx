@@ -4,7 +4,7 @@ import HorizontalScroll from '../../components/molecules/HorizontalScroll'
 import "./home.scss";
 import { useScroll, useTransform, motion } from 'framer-motion';
 import { NavLink } from 'react-router-dom';
-
+import useResponsive from '../../utils/useResponsive';
 const Home: React.FC = () => {
     const ref = useRef(null)
     const { scrollYProgress } = useScroll({
@@ -12,6 +12,10 @@ const Home: React.FC = () => {
         offset: ['-4vw', '10vh', '20vh', '60vw']
     })
     const width = useTransform(scrollYProgress, [0, 1], ['15vw', '80vw'])
+
+    const isMobile = useResponsive('(max-width: 768px)');
+    console.log(isMobile, 'test responsive');
+
     return (
         <main id='home'>
             <HorizontalScroll scrollLength={214} widthSection={215}>
