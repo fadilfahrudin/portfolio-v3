@@ -1,4 +1,4 @@
-.pointer{
+.pointer {
     &.default-pointer {
         position: fixed;
         z-index: 9999;
@@ -16,5 +16,50 @@
         mix-blend-mode: exclusion;
         pointer-events: none;
     }
-}
+    &.img-resume {
+        font-family: "Satoshi-Bold", sans-serif;
+        font-size: 20px;
+        line-height: 150%;
+        color: #222222;
+        position: fixed;
+        z-index: 9999;
+        width: 337px;
+        height: 80px;
+        pointer-events: none;
+        display: flex;
+        align-items: center;
+        justify-content: end;
+        .btn-resume-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 137px;
+            height: 40px;
+            background-color: var(--light-200);
 
+            padding: 6px 8px;
+            border-radius: 6px;
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+            span {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 28px;
+                aspect-ratio: 1/1;
+                border-radius: 4px;
+                background-color: #d3d3d3;
+                padding: 4px;
+                &::after{
+                    content: "";
+                    width: 100%;
+                    height: 100%;
+                    background-image:url("../../../assets/icons/ic-arrow-dark.svg");
+                    background-repeat: no-repeat;
+                    background-size: 18px;
+                    background-position: center;
+                    transform: rotate(-40deg);
+                }
+            }
+        }
+    }
+}
