@@ -3,6 +3,7 @@
     position: relative;
     height: auto;
     width: 100%;
+    display: flex;
     .introSection__home {
         flex-shrink: 0;
         max-width: 65vw;
@@ -89,61 +90,98 @@
             }
         }
     }
-    .imageSection__home {
-        max-width: 30vw;
-        height: 100%;
-        background-color: #d1d1d1;
-        scrollbar-width: none;
-        overflow-x: hidden;
-        .img-profile {
-            position: relative;
-            right: -57%;
-            left: unset;
-            width: 25vw;
-            height: auto;
-            object-fit: cover;
-            object-position: center top;
-        }
-        &:last-child {
-            background-color: #e7e7e7;
-            img {
-                right: unset;
-                left: -43%;
-                object-position: center top;
-            }
-        }
-        .desc__imageSection {
-            position: relative;
-            z-index: 2;
-            color: var(--dark-200);
-            font-family: "Lato-Regular", sans-serif;
-            font-size: clamp(14px, 1.2vw, 20px);
-            line-height: 150%;
-            text-align: end;
-            padding: 0 33px;
-            white-space: wrap;
-            transform: translateY(80px);
-            .reactIcon{
-                width: auto;
-                height: auto;
-                padding: 5px;
-                margin-left: 5px;
-                background-color: var(--light-200);
-                border-radius: 2px;
-                box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
-                line-height: 150%;
-                display: inline-block;
-                &::before{
-                    content: "";
-                    display: inline-block;
-                    background-image: url('../../assets/react.svg');
-                    background-repeat: no-repeat;
-                    background-position: center;
-                    background-size: contain;
-                    width: 20px;
-                    height: 15px;
+    .imageSectionWrapper__home{
+        display: flex;
+        max-width: 60vw;
+        height: 100vh;
+        flex-shrink: 0;
+        .imageSection__home {
+            max-width: 30vw;
+            height: 100%;
+            background-color: #d1d1d1;
+            scrollbar-width: none;
+            overflow-x: hidden;
+            a{
+                .img-profile {
+                    position: relative;
+                    right: -57%;
+                    left: unset;
+                    width: 25vw;
+                    height: auto;
+                    object-fit: cover;
+                    object-position: center top;
                 }
             }
+            &:last-child {
+                background-color: #e7e7e7;
+                a{
+                    .img-profile {
+                        left: -43%;
+                        right: unset;
+                    }
+                }
+            }
+            .desc__imageSection {
+                position: relative;
+                z-index: 2;
+                color: var(--dark-200);
+                font-family: "Lato-Regular", sans-serif;
+                font-size: clamp(14px, 1.2vw, 20px);
+                line-height: 150%;
+                text-align: end;
+                padding: 0 33px;
+                white-space: wrap;
+                transform: translateY(80px);
+                .reactIcon{
+                    width: auto;
+                    height: auto;
+                    padding: 5px;
+                    margin-left: 5px;
+                    background-color: var(--light-200);
+                    border-radius: 2px;
+                    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+                    line-height: 150%;
+                    display: inline-block;
+                    &::before{
+                        content: "";
+                        display: inline-block;
+                        background-image: url('../../assets/react.svg');
+                        background-repeat: no-repeat;
+                        background-position: center;
+                        background-size: contain;
+                        width: 20px;
+                        height: 15px;
+                    }
+                }
+            }
+        }
+    }
+    .projectSection__home{
+        max-width: 65vw;
+
+        height: 100vh;
+        padding: 33px 5vh;
+
+        display: flex;
+        flex-direction: column;
+        gap: 12.5vh; //138px
+        overflow-y: hidden;
+        .projectDisplay__home{
+            width: 100%;
+            // height: 75vh;
+            overflow: hidden;
+            .bg-project{
+                width: 100%;
+                height: 75vh;
+                object-fit: cover;
+                object-position: center;
+            }
+        }
+        &.one{
+            background-color: lightcoral;
+        }
+        &.two{
+            background-color: lightseagreen;
         }
     }
 }
