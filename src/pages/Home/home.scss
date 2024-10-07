@@ -54,7 +54,7 @@
                 &:hover {
                     &::after {
                         scale: 5;
-                        background-image: url(../../assets/icons/ic-arrow-light.svg);
+                        background-image: url('../../assets/icons/ic-arrow-light.svg');
                         background-repeat: no-repeat;
                         background-size: 2px;
                         background-position: center;
@@ -93,7 +93,7 @@
         max-width: 30vw;
         height: 100%;
         background-color: #d1d1d1;
-
+        scrollbar-width: none;
         overflow-x: hidden;
         .img-profile {
             position: relative;
@@ -132,6 +132,7 @@
                 border-radius: 2px;
                 box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
                 line-height: 150%;
+                display: inline-block;
                 &::before{
                     content: "";
                     display: inline-block;
