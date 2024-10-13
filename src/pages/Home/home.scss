@@ -55,7 +55,7 @@
                 &:hover {
                     &::after {
                         scale: 5;
-                        background-image: url('../../assets/icons/ic-arrow-light.svg');
+                        background-image: url("../../assets/icons/ic-arrow-light.svg");
                         background-repeat: no-repeat;
                         background-size: 2px;
                         background-position: center;
@@ -90,7 +90,7 @@
             }
         }
     }
-    .imageSectionWrapper__home{
+    .imageSectionWrapper__home {
         display: flex;
         max-width: 60vw;
         height: 100vh;
@@ -101,7 +101,7 @@
             background-color: #d1d1d1;
             scrollbar-width: none;
             overflow-x: hidden;
-            a{
+            a {
                 .img-profile {
                     position: relative;
                     right: -57%;
@@ -114,7 +114,7 @@
             }
             &:last-child {
                 background-color: #e7e7e7;
-                a{
+                a {
                     .img-profile {
                         left: -43%;
                         right: unset;
@@ -132,20 +132,18 @@
                 padding: 0 33px;
                 white-space: wrap;
                 transform: translateY(80px);
-                .reactIcon{
+                .reactIcon {
                     width: auto;
                     height: auto;
-                    padding: 5px;
-                    margin-left: 5px;
-                    background-color: var(--light-200);
+                    margin: 0 5px;
                     border-radius: 2px;
-                    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
-                    line-height: 150%;
                     display: inline-block;
-                    &::before{
+                    font-family: "Lato-Bold", sans-serif;
+
+                    &::before {
                         content: "";
                         display: inline-block;
-                        background-image: url('../../assets/react.svg');
+                        background-image: url("../../assets/react.svg");
                         background-repeat: no-repeat;
                         background-position: center;
                         background-size: contain;
@@ -156,32 +154,174 @@
             }
         }
     }
-    .projectSection__home{
-        max-width: 65vw;
-
-        height: 100vh;
-        padding: 33px 5vh;
-
+    .projectSection__home {
         display: flex;
-        flex-direction: column;
-        gap: 12.5vh; //138px
-        overflow-y: hidden;
-        .projectDisplay__home{
-            width: 100%;
-            // height: 75vh;
+        transform-origin: right top;
+        overflow: hidden;
+        height: 100vh;
+        .projectItem {
+            max-width: 65vw;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
             overflow: hidden;
-            .bg-project{
-                width: 100%;
-                height: 75vh;
-                object-fit: cover;
-                object-position: center;
+            background-color: var(--light-200);
+            &:nth-child(odd) {
+                background-color: var(--dark-300);
             }
-        }
-        &.one{
-            background-color: lightcoral;
-        }
-        &.two{
-            background-color: lightseagreen;
+            .projectDisplay__home {
+                position: relative;
+                width: 100%;
+                overflow: hidden;
+                .projectWrapper {
+                    position: relative;
+                    width: 100%;
+                    height: 65vh;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    .video-project {
+                        position: absolute;
+                        display: block;
+                        z-index: 1;
+                        width: 80%;
+                        height: 80%;
+                        aspect-ratio: 16 / 9;
+                        filter: blur(0px);
+                        transition: filter 0.3s ease-in-out;
+
+                        &.blurEffect {
+                            filter: blur(10px);
+                        }
+                    }
+                    .bg-project {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                        object-position: center;
+                    }
+                }
+            }
+            .projectDescription__home {
+                width: 100%;
+                height: 30vh;
+                padding: 24px 33px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                .projectInfo-1 {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    mix-blend-mode: exclusion;
+                    overflow: hidden;
+                    height: 100px;
+                    .btn-project {
+                        position: relative;
+                        width: 66.5px;
+                        height: 66.5px;
+                        border-radius: 50%;
+                        box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 25%);
+                        overflow: hidden;
+                        &::before {
+                            content: "";
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            width: 100%;
+                            height: 100%;
+                            display: block;
+                            background-color: #fff;
+                            background-blend-mode: exclusion;
+                            background-image: url("../../assets/icons/ic-arrow-light.svg");
+                            background-repeat: no-repeat;
+                            background-position: center;
+                            background-size: 30px auto;
+                            transform: rotate(-48deg);
+                            transition:
+                                background-position 0.3s ease-in-out,
+                                z-index 0.3s ease-in-out;
+                            z-index: 2;
+                        }
+                        &::after {
+                            content: "";
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            width: 100%;
+                            height: 100%;
+                            display: block;
+                            background-color: #fff;
+                            background-blend-mode: exclusion;
+                            background-image: url("../../assets/icons/ic-arrow-light.svg");
+                            background-repeat: no-repeat;
+                            background-position: -700px 80px;
+                            background-size: 30px auto;
+                            transform: rotate(-48deg);
+                            transition:
+                                background-position 0.3s ease-in-out,
+                                z-index 0.3s ease-in-out;
+                            z-index: 1;
+                        }
+
+                        &:hover {
+                            &::before {
+                                background-position: 700px -80px;
+                                z-index: 1;
+                            }
+                            &::after {
+                                background-position: center;
+                                z-index: 2;
+                            }
+                        }
+                    }
+                    .creation-date {
+                        font-family: "Lato-Bold", sans-serif;
+                        font-size: 20px;
+                        line-height: 150%;
+                        letter-spacing: -0.5px;
+                        pointer-events: none;
+                    }
+                }
+                .projectInfo-2 {
+                    width: 100%;
+                    height: 100px;
+                    overflow: hidden;
+                    display: flex;
+                    justify-content: center;
+                    .title-project {
+                        font-family: "Lato-Bold", sans-serif;
+                        font-size: 60px;
+                        letter-spacing: -1px;
+                        line-height: 120%;
+                        mix-blend-mode: exclusion;
+                        color: #fff;
+                        pointer-events: none;
+                    }
+                }
+                .projectInfo-3 {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    mix-blend-mode: exclusion;
+                    .project-number {
+                        font-family: "Lato-Bold", sans-serif;
+                        font-size: 20px;
+                        line-height: 120%;
+                        pointer-events: none;
+                    }
+                    .project-tech {
+                        display: flex;
+                        gap: 10px;
+                        align-items: center;
+                        list-style: none;
+                        height: 50px;
+                        overflow: hidden;
+                        pointer-events: none;
+                    }
+                }
+            }
         }
     }
 }
