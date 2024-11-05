@@ -51,7 +51,19 @@ const Home: React.FC = () => {
                 </motion.div>
 
                 <ProjectSection />
+                <section className='expertises__home'>
+                    <motion.div className='expertises__home--title'>Expertise</motion.div>
+                    <motion.div className='expertises__home--desc'>
+                        <motion.p className='desc__P'>My mission is to make magic by delivering a visually captivating and responsive user interface, supported by fast performance, providing a compelling advantage for your business with these techs:</motion.p>
+                        <ul className='desc__list-stack'>
+                            <li></li>
+                        </ul>
+                    </motion.div>
+                </section>
             </HorizontalScroll>
+            <section style={{ width: '100%', height: '100vh', background: 'red' }}>
+
+            </section>
         </main>
     )
 }

@@ -3,7 +3,6 @@
     position: relative;
     height: auto;
     width: 100%;
-    display: flex;
     .introSection__home {
         flex-shrink: 0;
         max-width: 65vw;
@@ -321,6 +320,32 @@
                         pointer-events: none;
                     }
                 }
+            }
+        }
+    }
+    .expertises__home{
+        position: absolute;
+        right: 0;
+        top: calc(65vh / 2);
+        width: 100vw;
+        height: calc(100vh - (65vh/2));
+        z-index: -1;
+        background-color: #E9E9E9;
+        padding: 0 38px;
+
+        display: flex;
+        gap: 20px;
+
+        &--title{
+            font-family: 'Satoshi-Regular';
+            font-size: clamp(80px, 10vw ,128px);
+            color: #0E0E0E;
+        }
+        &--desc{
+            .desc__P{
+                font-family: 'Lato-Regular';
+                font-size: clamp(20px, 2vw ,26px);
+                color: #393939;
             }
         }
     }

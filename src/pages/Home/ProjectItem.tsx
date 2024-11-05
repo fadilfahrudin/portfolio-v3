@@ -23,7 +23,6 @@ const ProjectItem: FC<{ index: number }> = ({ index }) => {
 
     useEffect(() => {
         if (isInView) {
-            console.log(index == 3)
             videoRef.current?.play()
         } else {
             videoRef.current?.pause()
