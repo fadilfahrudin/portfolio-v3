@@ -17,9 +17,11 @@ import IcReact from "../../assets/img/ic-react.png";
 import IcMysql from "../../assets/img/ic-mysql.png";
 import IcNextJs from "../../assets/img/ic-nextjs.png";
 import IcNodeJs from "../../assets/img/ic-nodejs.png";
+import useStringToArray from '../../utils/useStringToArray';
 
 const Home: React.FC = () => {
     const ref = useRef(null)
+    const expertiseRef = useRef(null)
     const refText = useRef(null)
     const { scrollYProgress } = useScroll({
         target: ref,
@@ -30,12 +32,48 @@ const Home: React.FC = () => {
         margin: "0px -800px 0px 0px"
     })
 
+    const expertiseIsInView = useInView(expertiseRef, {
+        margin: "0px -1250px 0px 0px",
+    })
+
+
+    const expertiseStack = {
+        active: (i: number) => ({
+            y: 0,
+            transition: {
+                delay: i * 0.1,
+                duration: 0.3
+            }
+        }),
+        hidden: () => ({
+            y: 150,
+            transition: {
+                duration: 0.3
+            }
+        })
+    }
+    const stack = {
+        active: (i: number) => ({
+            y: 0,
+            transition: {
+                delay: i * 0.2,
+                duration: 0.3
+            }
+        }),
+        hidden: () => ({
+            y: 150,
+            transition: {
+                duration: 0.3
+            }
+        })
+    }
+
     const scale = useTransform(scrollYProgress, [0, 0.5], [1, 1.2]);
     const y = useTransform(scrollYProgress, [0, 0.65], ['5vh', '25vh']);
     const y2 = useTransform(scrollYProgress, [0, 0.65], ['55vh', '25vh']);
     const x = useTransform(scrollYProgress, [0, 0.7], [-200, 0]);
 
-
+    const expertise = useStringToArray({ char: 'Expertise' })
     return (
         <main id='home'>
             <HorizontalScroll scrollLength={285} widthSection={370}>
@@ -60,27 +98,56 @@ const Home: React.FC = () => {
                 </motion.div>
 
                 <ProjectSection />
-                <section className='expertises__home'>
-                    <motion.div className='expertises__home--title'>Expertise</motion.div>
+                <section ref={expertiseRef} className='expertises__home'>
+                    <motion.div className='expertises__home--title'>
+                        {expertise.map((char, i) => (
+                            <motion.span key={i} custom={i} animate={expertiseIsInView ? 'active' : 'hidden'} variants={expertiseStack}>{char}</motion.span>
+                        ))}
+                    </motion.div>
                     <motion.div className='expertises__home--desc'>
-                        <motion.p className='desc__P'>My mission is to make magic by delivering a visually captivating and responsive user interface, supported by fast performance, providing a compelling advantage for your business with these techs:</motion.p>
+                        <motion.div className='desc__P'>
+                            <motion.p initial={{ y: 250 }} animate={expertiseIsInView ? { y: 0 } : { y: 250 }} transition={{ delay: 0.5, duration: 0.5 }} >
+                                My mission is to make magic by delivering a visually captivating and responsive user interface, supported by fast performance, providing a compelling advantage for your business with these techs:
+                            </motion.p>
+                        </motion.div>
                         <ul className='desc__list-stack'>
-                            <li><img src={IcHtml} alt="Javascript" className='ic-stacks' width={32} height={32} /></li>
-                            <li><img src={IcJs} alt="Javascript" className='ic-stacks' width={32} height={32} /></li>
-                            <li><img src={IcTs} alt="Javascript" className='ic-stacks' width={32} height={32} /></li>
-                            <li><img src={IcSass} alt="Javascript" className='ic-stacks' width={32} height={32} /></li>
-                            <li><img src={IcReact} alt="Javascript" className='ic-stacks' width={32} height={32} /></li>
-                            <li><img src={IcNextJs} alt="Javascript" className='ic-stacks' width={32} height={32} /></li>
-                            <li><img src={IcNodeJs} alt="Javascript" className='ic-stacks' width={32} height={32} /></li>
-                            <li><img src={IcTw} alt="Javascript" className='ic-stacks' width={32} height={32} /></li>
-                            <li><img src={IcBootstrap} alt="Javascript" className='ic-stacks' width={32} height={32} /></li>
-                            <li><img src={IcMysql} alt="Javascript" className='ic-stacks' width={32} height={32} /></li>
+                            <motion.li  custom={1} animate={expertiseIsInView ? 'active' : 'hidden'} variants={stack}><img src={IcHtml} alt="Javascript" className='ic-stacks' width={32} height={32} /></motion.li>
+                            <motion.li  custom={2} animate={expertiseIsInView ? 'active' : 'hidden'} variants={stack}><img src={IcJs} alt="Javascript" className='ic-stacks' width={32} height={32} /></motion.li>
+                            <motion.li  custom={3} animate={expertiseIsInView ? 'active' : 'hidden'} variants={stack}><img src={IcTs} alt="Javascript" className='ic-stacks' width={32} height={32} /></motion.li>
+                            <motion.li  custom={4} animate={expertiseIsInView ? 'active' : 'hidden'} variants={stack}><img src={IcSass} alt="Javascript" className='ic-stacks' width={32} height={32} /></motion.li>
+                            <motion.li  custom={5} animate={expertiseIsInView ? 'active' : 'hidden'} variants={stack}><img src={IcReact} alt="Javascript" className='ic-stacks' width={32} height={32} /></motion.li>
+                            <motion.li  custom={6} animate={expertiseIsInView ? 'active' : 'hidden'} variants={stack}><img src={IcNextJs} alt="Javascript" className='ic-stacks' width={32} height={32} /></motion.li>
+                            <motion.li  custom={7} animate={expertiseIsInView ? 'active' : 'hidden'} variants={stack}><img src={IcNodeJs} alt="Javascript" className='ic-stacks' width={32} height={32} /></motion.li>
+                            <motion.li  custom={8} animate={expertiseIsInView ? 'active' : 'hidden'} variants={stack}><img src={IcTw} alt="Javascript" className='ic-stacks' width={32} height={32} /></motion.li>
+                            <motion.li  custom={9} animate={expertiseIsInView ? 'active' : 'hidden'} variants={stack}><img src={IcBootstrap} alt="Javascript" className='ic-stacks' width={32} height={32} /></motion.li>
+                            <motion.li  custom={10} animate={expertiseIsInView ? 'active' : 'hidden'} variants={stack}><img src={IcMysql} alt="Javascript" className='ic-stacks' width={32} height={32} /></motion.li>
                         </ul>
                     </motion.div>
                 </section>
             </HorizontalScroll>
-            <section style={{ width: '100%', height: '100vh', background: 'red' }}>
-
+            <section className='expertise-list__home'>
+                <motion.div className='expertise__list'>
+                    <div className='list__title'>WEB DEVELOPMENT</div>
+                    <div className='list__body'>
+                        <p>With my expertise as a frontend developer, I can translate designs into  programming code to bring websites to life with captivating interactivity. I not only deliver visually appealing aesthetics but also ensure functionality by implementing cutting-edge technologies. Furthermore, my backend development skills enable me to create RESTful APIs that enhance interaction between the website and server, elevating the user experience.</p>
+                        <ul>
+                            <li>Web Responsive</li>
+                            <li>RESTfull API</li>
+                            <li>Motion & Animation</li>
+                        </ul>
+                    </div>
+                </motion.div>
+                <motion.div className='expertise__list'>
+                    <div className='list__title'>MOBILE DEVELOPMENT</div>
+                    <div className='list__body'>
+                        <p>With my expertise as a frontend developer, I can translate designs into  programming code to bring websites to life with captivating interactivity. I not only deliver visually appealing aesthetics but also ensure functionality by implementing cutting-edge technologies. Furthermore, my backend development skills enable me to create RESTful APIs that enhance interaction between the website and server, elevating the user experience.</p>
+                        <ul>
+                            <li>Web Responsive</li>
+                            <li>RESTfull API</li>
+                            <li>Motion & Animation</li>
+                        </ul>
+                    </div>
+                </motion.div>
             </section>
         </main>
     )

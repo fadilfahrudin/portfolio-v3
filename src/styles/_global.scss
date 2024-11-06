@@ -11,8 +11,7 @@
 
     color-scheme: light dark;
     color: rgba(255, 255, 255, 0.87);
-    background-color: #E9E9E9;
-
+    background-color: #e9e9e9;
 
     font-synthesis: none;
     text-rendering: optimizeLegibility;
@@ -20,86 +19,90 @@
     -moz-osx-font-smoothing: grayscale;
 
     --light-100: #ffffff;
-    --light-200: #E9E9E9;
-    --light-300: #D3D3D3;
-    --dark-100: #3E3E3E;
+    --light-200: #e9e9e9;
+    --light-300: #d3d3d3;
+    --dark-100: #3e3e3e;
     --dark-200: #393939;
     --dark-300: #222222;
-    --dark-400: #0E0E0E;
+    --dark-400: #0e0e0e;
+
+    scrollbar-width: none;
+    &::-webkit-scrollbar {
+        width: 0px;
+    }
 }
 
 // fonts
 @font-face {
-    font-family: 'BebasNeue-Regular';
-    src: url('../assets/fonts/BebasNeue/BebasNeue-Regular.ttf') format('truetype');
+    font-family: "BebasNeue-Regular";
+    src: url("../assets/fonts/BebasNeue/BebasNeue-Regular.ttf") format("truetype");
     font-weight: 400;
     font-display: swap;
     font-style: normal;
 }
 @font-face {
-    font-family: 'Lato-Light';
-    src: url('../assets/fonts/Lato/Lato-Light.ttf') format('truetype');
+    font-family: "Lato-Light";
+    src: url("../assets/fonts/Lato/Lato-Light.ttf") format("truetype");
     font-weight: 200;
     font-display: swap;
     font-style: normal;
 }
 @font-face {
-    font-family: 'Lato-Regular';
-    src: url('../assets/fonts/Lato/Lato-Regular.ttf') format('truetype');
+    font-family: "Lato-Regular";
+    src: url("../assets/fonts/Lato/Lato-Regular.ttf") format("truetype");
     font-weight: 400;
     font-display: swap;
     font-style: normal;
 }
 @font-face {
-    font-family: 'Lato-Bold';
-    src: url('../assets/fonts/Lato/Lato-Bold.ttf') format('truetype');
+    font-family: "Lato-Bold";
+    src: url("../assets/fonts/Lato/Lato-Bold.ttf") format("truetype");
     font-weight: 700;
     font-display: swap;
     font-style: normal;
 }
 @font-face {
-    font-family: 'Lato-Black';
-    src: url('../assets/fonts/Lato/Lato-Black.ttf') format('truetype');
+    font-family: "Lato-Black";
+    src: url("../assets/fonts/Lato/Lato-Black.ttf") format("truetype");
     font-weight: 900;
     font-display: swap;
     font-style: normal;
 }
 @font-face {
-    font-family: 'Satoshi-Light';
-    src: url('../assets/fonts/Satoshi/Fonts/OTF/Satoshi-Light.otf') format('opentype');
+    font-family: "Satoshi-Light";
+    src: url("../assets/fonts/Satoshi/Fonts/OTF/Satoshi-Light.otf") format("opentype");
     font-weight: 200;
     font-display: swap;
     font-style: normal;
 }
 @font-face {
-    font-family: 'Satoshi-Regular';
-    src: url('../assets/fonts/Satoshi/Fonts/OTF/Satoshi-Regular.otf') format('opentype');
+    font-family: "Satoshi-Regular";
+    src: url("../assets/fonts/Satoshi/Fonts/OTF/Satoshi-Regular.otf") format("opentype");
     font-weight: 400;
     font-display: swap;
     font-style: normal;
 }
 @font-face {
-    font-family: 'Satoshi-Medium';
-    src: url('../assets/fonts/Satoshi/Fonts/OTF/Satoshi-Medium.otf') format('opentype');
+    font-family: "Satoshi-Medium";
+    src: url("../assets/fonts/Satoshi/Fonts/OTF/Satoshi-Medium.otf") format("opentype");
     font-weight: 500;
     font-display: swap;
     font-style: normal;
 }
 @font-face {
-    font-family: 'Satoshi-Bold';
-    src: url('../assets/fonts/Satoshi/Fonts/OTF/Satoshi-Bold.otf') format('opentype');
+    font-family: "Satoshi-Bold";
+    src: url("../assets/fonts/Satoshi/Fonts/OTF/Satoshi-Bold.otf") format("opentype");
     font-weight: 700;
     font-display: swap;
     font-style: normal;
 }
 @font-face {
-    font-family: 'Satoshi-Black';
-    src: url('../assets/fonts/Satoshi/Fonts/OTF/Satoshi-Black.otf') format('opentype');
+    font-family: "Satoshi-Black";
+    src: url("../assets/fonts/Satoshi/Fonts/OTF/Satoshi-Black.otf") format("opentype");
     font-weight: 900;
     font-display: swap;
     font-style: normal;
 }
-
 
 body {
     min-width: 320px;
