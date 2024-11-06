@@ -7,7 +7,16 @@ import myProfile from '../../assets/dummy/fadil-fahrudin.png';
 import { NavigationHome } from './NavigatIonHome';
 import { IntrodoctionSection } from './IntrodoctionSection';
 import ProjectSection from './ProjectSection';
-
+import IcJs from "../../assets/img/ic-js.png";
+import IcTs from "../../assets/img/ic-ts.png";
+import IcSass from "../../assets/img/ic-sass.png";
+import IcTw from "../../assets/img/ic-tw.png";
+import IcHtml from "../../assets/img/ic-html.png";
+import IcBootstrap from "../../assets/img/ic-bootstrap.png";
+import IcReact from "../../assets/img/ic-react.png";
+import IcMysql from "../../assets/img/ic-mysql.png";
+import IcNextJs from "../../assets/img/ic-nextjs.png";
+import IcNodeJs from "../../assets/img/ic-nodejs.png";
 
 const Home: React.FC = () => {
     const ref = useRef(null)
@@ -56,7 +65,16 @@ const Home: React.FC = () => {
                     <motion.div className='expertises__home--desc'>
                         <motion.p className='desc__P'>My mission is to make magic by delivering a visually captivating and responsive user interface, supported by fast performance, providing a compelling advantage for your business with these techs:</motion.p>
                         <ul className='desc__list-stack'>
-                            <li></li>
+                            <li><img src={IcHtml} alt="Javascript" className='ic-stacks' width={32} height={32} /></li>
+                            <li><img src={IcJs} alt="Javascript" className='ic-stacks' width={32} height={32} /></li>
+                            <li><img src={IcTs} alt="Javascript" className='ic-stacks' width={32} height={32} /></li>
+                            <li><img src={IcSass} alt="Javascript" className='ic-stacks' width={32} height={32} /></li>
+                            <li><img src={IcReact} alt="Javascript" className='ic-stacks' width={32} height={32} /></li>
+                            <li><img src={IcNextJs} alt="Javascript" className='ic-stacks' width={32} height={32} /></li>
+                            <li><img src={IcNodeJs} alt="Javascript" className='ic-stacks' width={32} height={32} /></li>
+                            <li><img src={IcTw} alt="Javascript" className='ic-stacks' width={32} height={32} /></li>
+                            <li><img src={IcBootstrap} alt="Javascript" className='ic-stacks' width={32} height={32} /></li>
+                            <li><img src={IcMysql} alt="Javascript" className='ic-stacks' width={32} height={32} /></li>
                         </ul>
                     </motion.div>
                 </section>
