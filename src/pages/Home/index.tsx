@@ -1,8 +1,8 @@
-import React, { useRef } from 'react'
+import React, { useRef, useState } from 'react'
 import HorizontalScroll from '../../components/molecules/HorizontalScroll'
 import "./home.scss";
-import { useScroll, useTransform, motion, useInView } from 'framer-motion';
-import { NavLink } from 'react-router-dom';
+import { useScroll, useTransform, motion, useInView, AnimatePresence } from 'framer-motion';
+import { Link, NavLink } from 'react-router-dom';
 import myProfile from '../../assets/dummy/fadil-fahrudin.png';
 import { NavigationHome } from './NavigatIonHome';
 import { IntrodoctionSection } from './IntrodoctionSection';
@@ -22,6 +22,7 @@ import useStringToArray from '../../utils/useStringToArray';
 const Home: React.FC = () => {
     const ref = useRef(null)
     const contactRef = useRef(null)
+    const contactRef2 = useRef(null)
     const expertiseRef = useRef(null)
     const refText = useRef(null)
     const { scrollYProgress } = useScroll({
@@ -76,6 +77,25 @@ const Home: React.FC = () => {
             }
         })
     }
+    const contactIsInView = useInView(contactRef2, {
+        margin: "0px 0px -300px 0px"
+    })
+    const contactStack = {
+        active: (i: number) => ({
+            y: 0,
+            transition: {
+                delay: i * 0.3,
+                duration: 0.5
+            }
+        }),
+        hidden: () => ({
+            y: 150,
+            transition: {
+                duration: 0.5
+            }
+        })
+    }
+
 
     const scale = useTransform(scrollYProgress, [0, 0.5], [1, 1.2]);
     const scale2 = useTransform(scrollYp2, [0, 0.5], [1, 0.95]);
@@ -85,6 +105,24 @@ const Home: React.FC = () => {
     const x = useTransform(scrollYProgress, [0, 0.7], [-200, 0]);
 
     const expertise = useStringToArray({ char: 'Expertise' })
+    const [isCopy, setIsCopy] = useState(false)
+    const handleCopyText = async () => {
+        const textToCopy = 'fadilfahrudin32@gmail.com';
+        try {
+            await navigator.clipboard.writeText(textToCopy);
+            setIsCopy(!isCopy)
+            setTimeout(() => setIsCopy(false), 2000)
+        } catch (error) {
+            console.error('Failed to copy text:', error);
+        }
+    }
+
+    const footerRef = useRef(null)
+    const footerIsInView = useInView(footerRef, {
+        margin: "0px 0px -100px 0px"
+    })
+
+
     return (
         <main id='home'>
             <HorizontalScroll scrollLength={285} widthSection={370}>
@@ -160,13 +198,71 @@ const Home: React.FC = () => {
                     </div>
                 </motion.div>
                 <motion.section className='contact__home'>
-                    <motion.div className='contact__home--wrapper' style={{ scale: scale2 }}>
-
+                    <motion.div ref={contactRef2} className='contact__home--wrapper' style={{ scale: scale2 }}>
+                        <motion.div className='lets-connect'>
+                            <motion.div className='connect-title'><motion.span animate={contactIsInView ? "active" : "hidden"} variants={contactStack} custom={1}>LETS CONNECT &</motion.span> </motion.div>
+                            <motion.div className='magic-title'><motion.span animate={contactIsInView ? "active" : "hidden"} variants={contactStack} custom={2}>MAKE A MAGIC</motion.span></motion.div>
+                            <motion.a href='mailto:fadilfahrudin32@gmail.com' className='btn-send-email' animate={contactIsInView ? "active" : "hidden"} variants={contactStack} custom={3}>Send email <span><i className='ic ic-arrow'></i></span></motion.a>
+                        </motion.div>
+                        <motion.div className='contact-footer'>
+                            <div>
+                                <motion.span>AVAILABLE AT</motion.span>
+                                <motion.span>JAKARTA, INDONESIAN</motion.span>
+                            </div>
+                            <div>
+                                <motion.span>FEEL FREE TO REACH OUT TO ME</motion.span>
+                                <motion.button type='button' className='btn-copy' onClick={handleCopyText}>
+                                    fadilfahrudin32@gmail.com
+                                    <i className='ic ic-copy'></i>
+                                    <AnimatePresence>
+                                        {
+                                            isCopy && <motion.span initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, ease: 'easeInOut' }} exit={{ opacity: 1, y: 10 }} className='text-copied'>Copied!</motion.span>
+                                        }
+                                    </AnimatePresence>
+                                </motion.button>
+                            </div>
+                        </motion.div>
                     </motion.div>
                 </motion.section>
             </section>
-            <section className='footer__home'>
-
+            <section className='footer__home' ref={footerRef}>
+                <ul className='footer__home--navigation-wrapper'>
+                    <li>
+                        <motion.span>CREATED BY THESE TECHS:</motion.span>
+                        <ul>
+                            <li><motion.span animate={footerIsInView ? "active" : "hidden"} custom={1} variants={stack}>REACT</motion.span></li>
+                            <li><motion.span animate={footerIsInView ? "active" : "hidden"} custom={2} variants={stack}>FRAMER MOTION</motion.span></li>
+                            <li><motion.span animate={footerIsInView ? "active" : "hidden"} custom={3} variants={stack}>REDUX</motion.span></li>
+                            <li><motion.span animate={footerIsInView ? "active" : "hidden"} custom={4} variants={stack}>SASS</motion.span></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <motion.span>SOCIAL MEDIA</motion.span>
+                        <ul>
+                            <li><motion.span animate={footerIsInView ? "active" : "hidden"} custom={1} variants={stack}><Link to="https://instagram.com/fadilfahrudin" target='_blank'>INSTAGRAM</Link></motion.span></li>
+                            <li><motion.span animate={footerIsInView ? "active" : "hidden"} custom={2} variants={stack}><Link to="https://github.com/fadilfahrudin" target='_blank'>GITHUB</Link></motion.span></li>
+                            <li><motion.span animate={footerIsInView ? "active" : "hidden"} custom={3} variants={stack}><Link to="https://www.linkedin.com/in/fadillahfahrudin/" target='_blank'>LINKEDID</Link></motion.span></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <motion.span>NAVIGATION</motion.span>
+                        <ul>
+                            <li><motion.span animate={footerIsInView ? "active" : "hidden"} custom={1} variants={stack}><Link to="/about">ABOUT</Link></motion.span></li>
+                            <li><motion.span animate={footerIsInView ? "active" : "hidden"} custom={2} variants={stack}><Link to="/projects">PROJECTS</Link></motion.span></li>
+                            <li><motion.span animate={footerIsInView ? "active" : "hidden"} custom={3} variants={stack}><Link to="/contact">CONTACT</Link></motion.span></li>
+                        </ul>
+                    </li>
+                </ul>
+                <div className='footer__home--licence'>
+                    <div>
+                        <motion.span>©2024</motion.span>
+                        <motion.span>FADIL FAHRUDDIN</motion.span>
+                    </div>
+                    <div>
+                        <motion.span>LOCAL TIME</motion.span>
+                        <motion.span>07.27 AM UTC/GMT +7</motion.span>
+                    </div>
+                </div>
             </section>
         </main>
     )

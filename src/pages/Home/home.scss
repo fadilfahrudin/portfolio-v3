@@ -433,11 +433,158 @@
             overflow: visible;
             margin-top: 10vh;
             &--wrapper {
+                position: relative;
                 width: 100%;
                 height: 100%;
                 border-radius: 20px;
                 box-shadow: 0 12px 24px 15px rgba(0, 0, 0, 0.5);
                 background-color: #0e0e0e;
+                padding: 34px;
+                display: flex;
+                place-content: center;
+                align-items: center;
+                .lets-connect {
+                    overflow: hidden;
+                    height: auto;
+                    .connect-title,
+                    .magic-title {
+                        display: block;
+                        color: #e9e9e9;
+                        text-align: center;
+                    }
+                    .connect-title {
+                        span {
+                            display: block;
+                            font-family: "Satoshi-Regular", sans-serif;
+                            font-size: clamp(40px, 5vw, 64px);
+                            line-height: 150%;
+                            letter-spacing: -0.5px;
+                        }
+                        overflow: hidden;
+                        line-height: 150%;
+                    }
+                    .magic-title {
+                        span {
+                            display: block;
+                            font-family: "Satoshi-Bold", sans-serif;
+                            font-size: clamp(80px, 9vw, 111px);
+                            line-height: 150%;
+                            letter-spacing: -0.5px;
+                        }
+                        line-height: 150%;
+                        overflow: hidden;
+                    }
+                    .btn-send-email {
+                        display: flex;
+                        align-items: center;
+                        gap: 22px;
+                        background-color: #fff;
+                        color: #222222;
+                        font-family: "Satoshi-Bold", sans-serif;
+                        font-size: clamp(16px, 2vw, 20px);
+                        border-radius: 6px;
+                        padding: 16px 18px;
+                        margin: auto;
+                        text-transform: uppercase;
+                        transition: none;
+                        border: none;
+                        width: max-content;
+                        span {
+                            display: inline-block;
+                            width: 34px;
+                            height: 34px;
+                            background-color: #d9d9d9;
+                            border-radius: 4px;
+                            .ic-arrow {
+                                display: block;
+                                width: 34px;
+                                height: 34px;
+                                transform: rotate(-45deg);
+                                background-image: url(../../src/assets/icons/ic-arrow-dark.svg);
+                                background-repeat: no-repeat;
+                                background-size: 20px;
+                                background-position: center;
+                                transition: none;
+
+                                &::before {
+                                    content: "";
+                                    display: block;
+                                    width: 34px;
+                                    height: 34px;
+                                    background-image: url(../../src/assets/icons/ic-arrow-dark.svg);
+                                    background-repeat: no-repeat;
+                                    background-size: 20px;
+                                    background-position: -50px;
+                                    transition: none;
+                                }
+                            }
+                        }
+
+                        &:hover {
+                            span {
+                                .ic-arrow {
+                                    background-position: 50px;
+                                    transition: background-position 0.5s ease;
+                                    &::before {
+                                        background-position: center;
+                                        transition: background-position 0.5s ease;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                .contact-footer {
+                    position: absolute;
+                    width: 100%;
+                    padding: 34px;
+                    bottom: 0;
+                    display: flex;
+                    justify-content: space-between;
+                    & > div {
+                        span {
+                            display: block;
+                            color: #e9e9e9;
+                            font-family: "Satoshi-Light", sans-serif;
+                            font-size: clamp(16px, 2vw, 20px);
+                            &:last-child {
+                                font-family: "Satoshi-Bold", sans-serif;
+                            }
+                        }
+                        .btn-copy {
+                            background-color: transparent;
+                            position: relative;
+                            color: #e9e9e9;
+                            font-family: "Satoshi-Light", sans-serif;
+                            font-size: clamp(16px, 2vw, 20px);
+                            padding: unset;
+                            outline: none;
+                            border: none;
+                            cursor: pointer;
+                            .ic-copy {
+                                display: inline-block;
+                                width: 20px;
+                                height: 20px;
+                                background-image: url(../../src/assets/icons/ic-copy.png);
+                                background-repeat: no-repeat;
+                                background-size: 15px;
+                                background-position: center;
+                            }
+                            .text-copied {
+                                position: absolute;
+                                font-size: 12px;
+                                font-family: "Satoshi-Light", sans-serif;
+                            }
+                        }
+                        &:last-child {
+                            span {
+                                &:first-child {
+                                    font-family: "Satoshi-Bold", sans-serif;
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
     }
@@ -445,7 +592,110 @@
     .footer__home {
         position: relative;
         width: 100%;
-        height: 70vh;
+        height: 72vh;
         background-color: #e9e9e9;
+        padding: 0 33px;
+        padding-top: clamp(30px, 5vh, 69px);
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        &--navigation-wrapper {
+            width: 100%;
+            display: flex;
+            list-style: none;
+            gap: clamp(30px, 5vw, 56px);
+            li {
+                &:first-child {
+                    margin-right: auto;
+                    ul {
+                        li {
+                            cursor: default;
+                        }
+                    }
+                }
+                span {
+                    font-family: "Satoshi-Black", sans-serif;
+                    color: #222222;
+                    font-size: clamp(18px, 3vw, 22px);
+                    letter-spacing: -0.5px;
+                }
+                ul {
+                    list-style: none;
+                    li {
+                        cursor: pointer;
+                        overflow: hidden;
+                        padding-left: 2px;
+                        span {
+                            &::before {
+                                content: "";
+                                display: inline-block;
+                                width: 10px;
+                                height: 10px;
+                                border-radius: 50%;
+                                background-color: #222222;
+                            }
+                            display: flex;
+                            align-items: center;
+                            gap: 6px;
+                            font-family: "Lato-Bold", sans-serif;
+                            font-size: clamp(16px, 2.5vw, 20px);
+                            letter-spacing: 0;
+                            a {
+                                color: #222222;
+                            }
+                        }
+                        &:hover {
+                            span{
+                                &::before {
+                                    width: 6px;
+                                    height: 6px;
+                                    border: 2px solid #d9d9d9;
+                                    outline: 1px solid #222222;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        &--licence {
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+            & > div {
+                &:first-child {
+                    span {
+                        display: block;
+                        font-family: "BebasNeue-Regular";
+                        font-size: clamp(50px, 8vw, 96px);
+                        color: #222222;
+                        line-height: 100%;
+                        &::selection {
+                            background-color: #222222;
+                            color: #e9e9e9;
+                        }
+                    }
+                }
+                &:last-child {
+                    span {
+                        display: block;
+                        color: #222222;
+                        &:first-child {
+                            font-family: "BebasNeue-Regular";
+                            font-size: clamp(20px, 4vw, 42px);
+                        }
+                        font-family: "BebasNeue-Regular", sans-serif;
+                        line-height: 100%;
+                        letter-spacing: -0.5px;
+                        text-align: end;
+                        &::selection {
+                            background-color: #222222;
+                            color: #e9e9e9;
+                        }
+                    }
+                }
+            }
+        }
     }
 }

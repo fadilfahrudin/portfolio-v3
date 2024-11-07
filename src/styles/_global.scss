@@ -136,6 +136,11 @@ button:focus,
 button:focus-visible {
     outline: 4px auto -webkit-focus-ring-color;
 }
+i{
+    &.ic{
+        font-style: normal;
+    }
+}
 
 @media (prefers-color-scheme: light) {
     :root {
