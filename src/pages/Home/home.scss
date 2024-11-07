@@ -386,22 +386,22 @@
     }
     .expertise-list__home {
         width: 100%;
-        min-height: 100vh;
-        padding: 0 38px;
+        height: auto;
         .expertise__list {
             position: sticky;
-            top: 5vh;
-            width: 100%;
+            width: 98%;
             height: auto;
+            margin: 0 auto;
             border-top: 1px solid #212121;
-            padding: clamp(38px, 8vh, 62px) 1.5vw;
+            padding: clamp(28px, 6vh, 32px) 1.5vw;
             background-color: #e9e9e9;
             .list__title {
                 width: 50%;
                 color: #0e0e0e;
-                font-family: "Satoshi-Regular", sans-serif;
+                font-family: "Satoshi-Medium", sans-serif;
                 font-size: clamp(30px, 4vw, 50px);
                 margin-bottom: 2rem;
+                transform-origin: top left;
             }
             .list__body {
                 display: flex;
@@ -424,5 +424,28 @@
                 }
             }
         }
+        .contact__home {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            height: 110vh;
+            background-color: #e9e9e9;
+            overflow: visible;
+            margin-top: 10vh;
+            &--wrapper {
+                width: 100%;
+                height: 100%;
+                border-radius: 20px;
+                box-shadow: 0 12px 24px 15px rgba(0, 0, 0, 0.5);
+                background-color: #0e0e0e;
+            }
+        }
+    }
+
+    .footer__home {
+        position: relative;
+        width: 100%;
+        height: 70vh;
+        background-color: #e9e9e9;
     }
 }
