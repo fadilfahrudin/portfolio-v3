@@ -18,7 +18,7 @@ export const NavigationHome: React.FC = memo(() => {
     return (
         <nav className="nav__home">
             {menu.map((nav, i) => (
-                <NavLink key={i} to={nav.link} className="navLink">{nav.name.toUpperCase()}</NavLink>
+                <NavLink key={i} to={nav.link} className="navLink">{nav.name.toUpperCase()} <span className="ic-wrapper"><i className="ic ic-arrow"></i></span></NavLink>
             ))}
         </nav>
     )

@@ -8,11 +8,10 @@ const ProjectSection: React.FC = () => {
         target: ref,
         offset: [`${0}vw`, `${0}vw`, `${65 * 4}vh`]
     })
-    const scale = useTransform(scrollYProgress, [0.9, 1], [1, 0.5]);
-    const height = useTransform(scrollYProgress, [0.9, 1], ['100vh', '65vh']);
+    const scale = useTransform(scrollYProgress, [0.9, 1], [1, 0.6]);
+    const height = useTransform(scrollYProgress, [0.9, 1], ['100vh', '55vh']);
 
     useEffect(() => {
-        console.log(scrollYProgress.get())
     }, [scrollYProgress])
 
     return (

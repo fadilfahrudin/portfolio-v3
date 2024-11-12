@@ -10,7 +10,7 @@ const ProjectItem: FC<{ index: number }> = ({ index }) => {
     const videoRef = useRef<HTMLVideoElement>(null);
     const { scrollYProgress } = useScroll({
         target: ref,
-        offset: [`${-65 * index}vh`, `${10 * index}vh`, `${65 * index}vh`]
+        offset: [`${-55 * index}vh`, `${30 * index}vh`, `${55 * index}vh`]
     })
 
     const width = useTransform(scrollYProgress, [0, 1], ['5vw', '65vw'])
@@ -18,16 +18,19 @@ const ProjectItem: FC<{ index: number }> = ({ index }) => {
     const scale = useTransform(scrollYProgress, [0, 0.5], [1, 1.2]);
 
     const isInView = useInView(videoRef, {
-        margin: "0% -30% 0% 0%"
+        margin: "0% -40% 0% 0%"
+    })
+    const isInViewVideo = useInView(videoRef, {
+        margin: "0% -20% 0% 0%"
     })
 
     useEffect(() => {
-        if (isInView) {
+        if (isInViewVideo) {
             videoRef.current?.play()
         } else {
             videoRef.current?.pause()
         }
-    }, [isInView])
+    }, [isInViewVideo])
 
 
     const variants = {
@@ -38,10 +41,9 @@ const ProjectItem: FC<{ index: number }> = ({ index }) => {
                 duration: 0.3
             }
         }),
-        hidden: (i: number) => ({
+        hidden: () => ({
             y: "100px",
             transition: {
-                delay: i * 0.2,
                 duration: 0.3
             }
         })
@@ -52,7 +54,7 @@ const ProjectItem: FC<{ index: number }> = ({ index }) => {
             <motion.div>
                 <NavLink to={'#'} className='projectDisplay__home'>
                     <motion.div className="projectWrapper" style={{ y, scale }} >
-                        <VideoComponent ref={videoRef} src={videoSrc} className={`video-project ${isInView ? '' : 'blurEffect'}`} />
+                        <VideoComponent ref={videoRef} src={videoSrc} className={`video-project ${isInViewVideo ? '' : 'blurEffect'}`} />
                         <motion.img className='bg-project' src={bgDummy} alt="profile" width={1000} height={1000} />
                     </motion.div>
                 </NavLink>
