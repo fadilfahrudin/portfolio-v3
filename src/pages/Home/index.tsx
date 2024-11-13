@@ -20,6 +20,7 @@ import IcNodeJs from "../../assets/img/ic-nodejs.png";
 import useStringToArray from '../../utils/useStringToArray';
 import InViewSection from '../../components/molecules/InViewSection';
 import useResponsive from '../../utils/useResponsive'
+import ProjectSectionMobile from './ProjectSectionMobile';
 
 
 const Home: React.FC = () => {
@@ -174,7 +175,7 @@ const Home: React.FC = () => {
                         <NavigationHome />
                         <IntrodoctionSection />
                     </section>
-
+                    <ProjectSectionMobile/>
                 </>
             }
             <section ref={contactRef} className='expertise-list__home' >
