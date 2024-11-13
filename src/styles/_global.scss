@@ -108,6 +108,12 @@ body {
     min-width: 320px;
     min-height: 100vh;
 }
+p,h1,h2,h3,h4,h5,span,button,a{
+    &::selection {
+        background-color: #222222;
+        color: #e9e9e9;
+    }
+}
 
 a {
     font-weight: 500;
