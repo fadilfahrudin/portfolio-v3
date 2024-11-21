@@ -1,9 +1,11 @@
 import React, { memo } from 'react'
 import Marquee from '../../components/atomic/Marquee'
+import { NavigationHome } from './NavigatIonHome'
 
 export const IntrodoctionSection: React.FC = memo(() => {
     return (
         <div className='introduction__home'>
+            <NavigationHome />
             <Marquee text={['Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, enim?', 'NEW PROJECTS']} />
             <div className='myName'>
                 <svg width="35" height="217" viewBox="0 0 35 217" fill="none" xmlns="http://www.w3.org/2000/svg">

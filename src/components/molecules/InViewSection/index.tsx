@@ -8,6 +8,7 @@ interface ScrollInViewWrapperProps {
     children: (isInView: boolean) => React.ReactNode;
     className?: string;
     once?: boolean;
+    amount?:number;
 }
 
 
@@ -15,11 +16,12 @@ const InViewSection: React.FC<ScrollInViewWrapperProps> = ({
     margin,
     children,
     className,
-    once
+    once,
+    amount
 }) => {
 
     const ref = useRef(null)
-    const isInView = useInView(ref, { margin, once })
+    const isInView = useInView(ref, { margin, once, amount })
     return (
         <section ref={ref} className={className}>
             {children(isInView)}
