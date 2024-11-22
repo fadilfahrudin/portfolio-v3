@@ -10,11 +10,11 @@ const ProjectItem: FC<{ index: number }> = ({ index }) => {
     const videoRef = useRef<HTMLVideoElement>(null);
     const { scrollYProgress } = useScroll({
         target: ref,
-        offset: [`${-55 * index}vh`, `${30 * index}vh`, `${55 * index}vh`]
+        offset: [`${-10 * index}vh`, `${index}vh`, `${index * 40}vh`, `${65 * index}vh`]
     })
 
-    const width = useTransform(scrollYProgress, [0, 1], ['5vw', '65vw'])
-    const y = useTransform(scrollYProgress, [0.2, 1], ['100vh', '0vh']);
+    const width = useTransform(scrollYProgress, [0, 1], ['10vw', '65vw'])
+    const y = useTransform(scrollYProgress, [0, 1], ['45vh', '0vh']);
     const scale = useTransform(scrollYProgress, [0, 0.5], [1, 1.2]);
 
     const isInView = useInView(videoRef, {

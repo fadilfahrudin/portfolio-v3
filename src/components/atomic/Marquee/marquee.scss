@@ -1,7 +1,7 @@
 .marquee-container {
     position: relative;
     width: 100%;
-    overflow: hidden;
+    overflow-x: hidden;
     display: flex;
     .marquee {
         cursor: default;

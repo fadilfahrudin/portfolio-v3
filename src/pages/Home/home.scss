@@ -6,14 +6,13 @@
     .introSection__home {
         position: relative;
         flex-shrink: 0;
-        max-width: 65vw;
+        max-width: 50vw;
         height: 100vh;
         background-color: var(--light-200);
         padding: 10vh 33px 5vh;
 
         display: flex;
         flex-direction: column;
-        gap: 12.5vh; //138px
         overflow: hidden;
         .nav__home {
             display: flex;
@@ -80,42 +79,40 @@
         .introduction__home {
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
-            gap: 5.2vh;
+            justify-content: space-around;
             height: 100%;
             .myName {
                 display: flex;
-                flex-wrap: wrap;
+                gap: 5px;
+                overflow: hidden;
                 justify-content: space-around;
-                div {
-                    display: flex;
+                span {
+                    font-family: "Oswald-Bold", sans-serif;
+                    color: var(--dark-400);
+                    font-size: clamp(174px, 40vw, 290px);
+                    line-height: 100%;
+                    letter-spacing: -2.5vw;
+                    display: block;
                 }
             }
             p {
                 &.myDesc {
                     font-family: "Lato-Regular", sans-serif;
                     font-size: clamp(18px, 1.7vw, 28px);
-                    line-height: 150%;
+                    line-height: 120%;
                     color: var(--dark-200);
                     text-align: center;
                     letter-spacing: -1px;
-                    margin-top: auto;
                 }
             }
         }
 
         @include media.mobile {
             max-width: 100vw;
-            justify-content: center;
             height: max-content;
             padding: 2vh 15px;
             gap: 5vh;
             .introduction__home {
-                .myName {
-                    justify-content: space-between;
-                    gap: 5px;
-                    scale: 0.9;
-                }
                 p {
                     &.myDesc {
                         text-align: start;

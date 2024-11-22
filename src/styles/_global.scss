@@ -103,6 +103,27 @@
     font-display: swap;
     font-style: normal;
 }
+@font-face {
+    font-family: "Oswald-Bold";
+    src: url("../assets/fonts/Oswald/static/Oswald-Bold.ttf") format("truetype");
+    font-weight: 700;
+    font-display: swap;
+    font-style: normal;
+}
+@font-face {
+    font-family: "Oswald-Medium";
+    src: url("../assets/fonts/Oswald/static/Oswald-Medium.ttf") format("truetype");
+    font-weight: 500;
+    font-display: swap;
+    font-style: normal;
+}
+@font-face {
+    font-family: "Oswald-Regular";
+    src: url("../assets/fonts/Oswald/static/Oswald-Regular.ttf") format("truetype");
+    font-weight: 400;
+    font-display: swap;
+    font-style: normal;
+}
 
 body {
     min-width: 320px;
