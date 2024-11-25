@@ -1,12 +1,28 @@
 import React from 'react'
-import { motion} from 'framer-motion';
+import { motion } from 'framer-motion';
 import { NavLink } from 'react-router-dom';
 import { VideoComponent } from '../../components/atomic/Video';
-import videoSrc from '../../assets/video/1724589447261-videoplayback.mp4';
-import bgDummy from '../../assets/dummy/bg-video.jpg';
 import InViewSection from '../../components/molecules/InViewSection';
 
-const ProjectItem: React.FC<{ index: number }> = ({ index }) => {
+import videoInews from "../../assets/video/inews.mp4"
+import videoWebMovie from "../../assets/video/web-movie.mp4"
+import videoUiDesiign from "../../assets/video/mobile-design.mp4"
+import bgGlums from "../../assets/img/glums.jpg"
+import bgInews from "../../assets/img/inews.jpg"
+import bgWebMovie from "../../assets/img/movie-web.jpg"
+import bgUiDesign from "../../assets/img/uidesign.jpg"
+import videoGlums from "../../assets/video/glums-record.mp4"
+
+
+interface ProjectItemProps {
+    createdAt: string;
+    title: string;
+    image: string;
+    video: string;
+    link: string;
+    techStack: string[];
+}
+const ProjectItem: React.FC<ProjectItemProps> = ({ createdAt, title, image, video, link, techStack }) => {
     const variants = {
         visible: (i: number) => ({
             y: 0,
@@ -28,8 +44,8 @@ const ProjectItem: React.FC<{ index: number }> = ({ index }) => {
                 <InViewSection className='projectWrapper' amount={0.9}>
                     {(isInView) => (
                         <>
-                            <VideoComponent src={videoSrc} className={`video-project ${isInView ? '' : 'blurEffect'}`} />
-                            <motion.img className='bg-project' src={bgDummy} alt="profile" width={1000} height={1000} />
+                            <VideoComponent src={video} className={`video-project ${isInView ? '' : 'blurEffect'}`} />
+                            <motion.img className='bg-project' src={image} alt="profile" width={1000} height={1000} />
                         </>
                     )}
                 </InViewSection>
@@ -38,19 +54,21 @@ const ProjectItem: React.FC<{ index: number }> = ({ index }) => {
                 {(isInView) => (
                     <>
                         <motion.div className="projectInfo-1" >
-                            <motion.span className="creation-date" initial="hidden" animate={isInView ? 'visible' : 'hidden'} variants={variants} custom={1}>JULE 2024</motion.span>
+                            <motion.span className="creation-date" initial="hidden" animate={isInView ? 'visible' : 'hidden'} variants={variants} custom={1}>{createdAt}</motion.span>
                         </motion.div>
-                        <NavLink className="projectInfo-2" to='#'>
-                            <motion.span className="title-project" initial="hidden" animate={isInView ? 'visible' : 'hidden'} variants={variants} custom={2}>Semangat Bantu</motion.span>
+                        <NavLink className="projectInfo-2" to={link} rel='noreferrer noopener' target='_blank'>
+                            <motion.span className="title-project" initial="hidden" animate={isInView ? 'visible' : 'hidden'} variants={variants} custom={2}>{title}</motion.span>
                         </NavLink>
                         <motion.div className="projectInfo-3">
                             <motion.ul className="project-tech">
-                                <motion.li initial="hidden" animate={isInView ? 'visible' : 'hidden'} variants={variants} custom={3}>REDUX</motion.li>
-                                <motion.li initial="hidden" animate={isInView ? 'visible' : 'hidden'} variants={variants} custom={3.5} >REACT</motion.li>
-                                <motion.li initial="hidden" animate={isInView ? 'visible' : 'hidden'} variants={variants} custom={4} >SCSS</motion.li>
+                                {
+                                    techStack.map((tech, i) => (
+                                        <motion.li key={i} initial="hidden" animate={isInView ? 'visible' : 'hidden'} variants={variants} custom={2.5 + i}>{tech}</motion.li>
+                                    ))
+                                }
                             </motion.ul>
                         </motion.div>
-                        <motion.button initial="hidden" animate={isInView ? 'visible' : 'hidden'} variants={variants} custom={5} type='button' className='btn-projectMobile'>Visit</motion.button>
+                        <motion.a href={link} target="_blank" rel='noreferrer noopener' initial="hidden" animate={isInView ? 'visible' : 'hidden'} variants={variants} custom={5} type='button' className='btn-projectMobile'>Visit</motion.a>
                     </>
                 )}
             </InViewSection>
@@ -61,10 +79,10 @@ const ProjectItem: React.FC<{ index: number }> = ({ index }) => {
 const ProjectSectionMobile: React.FC = () => {
     return (
         <section className='projectSectionMobile__home'>
-            <ProjectItem index={1} />
-            <ProjectItem index={2} />
-            <ProjectItem index={3} />
-            <ProjectItem index={4} />
+            <ProjectItem image={bgGlums} video={videoGlums} link='https://glums.id' title='GLUMS.ID' createdAt={'JUN 2024'} techStack={['ReactJS', 'SASS', 'Framer Motion', 'Redux']} />
+            <ProjectItem image={bgInews} video={videoInews} link='https://inews.id' title='iNews.id' createdAt={'2024'} techStack={['JQuery', 'Javascript', 'SASS', 'HTML']} />
+            <ProjectItem image={bgWebMovie} video={videoWebMovie} link='https://web-movie-navy.vercel.app' title='WEB MOVIE' createdAt={'DEC 2023'} techStack={['NextJS', 'SASS', 'GSAP', 'Redux']} />
+            <ProjectItem image={bgUiDesign} video={videoUiDesiign} link='#' title='Donation App' createdAt={'JUN 2020'} techStack={['React Native', 'Redux', 'React Reanimated']} />
         </section>
     )
 }

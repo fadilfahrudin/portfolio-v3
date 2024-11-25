@@ -1,0 +1,99 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100%;
+    background-color: var(--light-200);
+    color: var(--dark-300);
+    font-family: "Lato-Bold", sans-serif;
+    padding: 2rem;
+
+    .NotAvailablePage {
+        position: relative;
+        width: 80%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        // &::before {
+        //     position: absolute;
+        //     display: block;
+        //     content: "";
+        //     width: auto;
+        //     height: 90%;
+        //     aspect-ratio: 1/1;
+        //     border-radius: 50%;
+        //     background-color: var(--dark-300);
+        //     z-index: 1;
+        // }
+        & > div,
+        h1,
+        p,
+        a {
+            position: relative;
+            z-index: 3;
+            text-align: center;
+            mix-blend-mode: exclusion;
+            color: #fff;
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-top: 50px;
+        }
+        p {
+            font-size: 1.2rem;
+            font-family: "Lato-Regular", sans-serif;
+        }
+        a {
+            font-size: 1.2rem;
+            font-family: "Lato-Light", sans-serif;
+            .icArrow {
+                display: inline-block;
+                width: 20px;
+                height: 20px;
+                transform: rotate(-45deg);
+                background-image: url(../../../src/assets/icons/ic-arrow-dark.svg);
+                background-repeat: no-repeat;
+                background-size: 20px;
+                background-position: -50px;
+                transition: none;
+                mix-blend-mode: exclusion;
+
+                &::after {
+                    content: "";
+                    display: block;
+                    width: 20px;
+                    height: 20px;
+                    background-image: url(../../../src/assets/icons/ic-arrow-dark.svg);
+                    background-repeat: no-repeat;
+                    background-size: 20px;
+                    background-position: center;
+                }
+            }
+            &:hover {
+                span {
+                    text-decoration: underline;
+                }
+                .icArrow {
+                    background-position: center;
+                    transition: background-position 0.3s ease 0.3s;
+                    &::after {
+                        background-position: 50px;
+                        transition: background-position 0.3s ease;
+                    }
+                }
+            }
+        }
+        img {
+            width: 50%;
+            height: auto;
+            object-fit: contain;
+            z-index: 2;
+            position: absolute;
+            mix-blend-mode: exclusion;
+            opacity: 0.5;
+        }
+    }
+}

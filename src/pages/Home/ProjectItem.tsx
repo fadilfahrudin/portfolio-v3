@@ -1,11 +1,22 @@
 import { NavLink } from "react-router-dom";
-import bgDummy from '../../assets/dummy/bg-video.jpg';
-import videoSrc from '../../assets/video/1724589447261-videoplayback.mp4';
 import { useScroll, useTransform, motion, useInView } from "framer-motion";
 import { useRef, FC, useEffect } from "react";
 import { VideoComponent } from "../../components/atomic/Video";
 
-const ProjectItem: FC<{ index: number }> = ({ index }) => {
+
+
+interface ProjectItemProps {
+    index: number;
+    createdAt: string;
+    title: string;
+    image: string;
+    video: string;
+    link: string;
+    techStack: string[];
+}
+
+
+const ProjectItem: FC<ProjectItemProps> = ({ index, createdAt, title, image, video, link, techStack }) => {
     const ref = useRef(null)
     const videoRef = useRef<HTMLVideoElement>(null);
     const { scrollYProgress } = useScroll({
@@ -52,27 +63,29 @@ const ProjectItem: FC<{ index: number }> = ({ index }) => {
     return (
         <motion.section className='projectItem' style={{ width }}>
             <motion.div>
-                <NavLink to={'#'} className='projectDisplay__home'>
+                <NavLink target="_blank" rel="noreferrer noopener" to={link} className='projectDisplay__home'>
                     <motion.div className="projectWrapper" style={{ y, scale }} >
-                        <VideoComponent ref={videoRef} src={videoSrc} className={`video-project ${isInViewVideo ? '' : 'blurEffect'}`} />
-                        <motion.img className='bg-project' src={bgDummy} alt="profile" width={1000} height={1000} />
+                        <VideoComponent ref={videoRef} src={video} className={`video-project ${isInViewVideo ? '' : 'blurEffect'}`} />
+                        <motion.img className='bg-project' src={image} alt="profile" width={1000} height={1000} />
                     </motion.div>
                 </NavLink>
             </motion.div>
             <motion.div className="projectDescription__home">
                 <motion.div className="projectInfo-1" >
-                    <motion.button type="button" className="btn-project" custom={1} animate={isInView ? 'visible' : 'hidden'} variants={variants}></motion.button>
-                    <motion.span className="creation-date" custom={1} animate={isInView ? 'visible' : 'hidden'} variants={variants}>JULE 2024</motion.span>
+                    <motion.a target="_blank" rel="noreferrer noopener" href={link} className="btn-project" custom={1} animate={isInView ? 'visible' : 'hidden'} variants={variants}></motion.a>
+                    <motion.span className="creation-date" custom={1} animate={isInView ? 'visible' : 'hidden'} variants={variants}>{createdAt}</motion.span>
                 </motion.div>
-                <NavLink className="projectInfo-2" to='#'>
-                    <motion.span className="title-project" custom={2} animate={isInView ? 'visible' : 'hidden'} variants={variants}>Semangat Bantu</motion.span>
+                <NavLink className="projectInfo-2" rel="noreferrer noopener" to={link} target="_blank">
+                    <motion.span className="title-project" custom={2} animate={isInView ? 'visible' : 'hidden'} variants={variants}>{title}</motion.span>
                 </NavLink>
                 <motion.div className="projectInfo-3">
                     <motion.span className="project-number">0{index}</motion.span>
                     <motion.ul className="project-tech">
-                        <motion.li custom={3} animate={isInView ? 'visible' : 'hidden'} variants={variants}>REDUX</motion.li>
-                        <motion.li custom={4} animate={isInView ? 'visible' : 'hidden'} variants={variants}>REACT</motion.li>
-                        <motion.li custom={5} animate={isInView ? 'visible' : 'hidden'} variants={variants}>SCSS</motion.li>
+                        {
+                            techStack.map((item, index) => (
+                                <motion.li key={index} custom={3 + index} animate={isInView ? 'visible' : 'hidden'} variants={variants}>{item.toUpperCase()}</motion.li>
+                            ))
+                        }
                     </motion.ul>
                 </motion.div>
             </motion.div>

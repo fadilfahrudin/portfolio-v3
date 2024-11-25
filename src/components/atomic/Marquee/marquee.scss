@@ -16,7 +16,10 @@
             align-items: center;
             color: var(--dark-300);
             b {
-                font-family: 'Lato-Bold', sans-serif;
+                display: flex;
+                align-items: center;
+                gap: 4px;
+                font-family: "Lato-Bold", sans-serif;
                 line-height: 150%;
                 font-weight: 700;
                 font-style: normal;
@@ -43,5 +46,3 @@
         }
     }
 }
-
-

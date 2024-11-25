@@ -82,6 +82,7 @@
             justify-content: space-around;
             height: 100%;
             .myName {
+                position: relative;
                 display: flex;
                 gap: 5px;
                 overflow: hidden;
@@ -334,6 +335,7 @@
                         border-radius: 50%;
                         box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 25%);
                         overflow: hidden;
+                        cursor: pointer;
                         &::before {
                             content: "";
                             position: absolute;
@@ -466,7 +468,7 @@
                         border-radius: 0.75rem;
 
                         &.blurEffect {
-                            filter: blur(10px);
+                            filter: blur(0px);
                         }
                     }
                     .bg-project {
@@ -677,13 +679,39 @@
                     font-size: clamp(18px, 1.8vw, 24px);
                     line-height: 150%;
                 }
-                ul {
+                ol {
+                    width: 30%;
                     list-style: none;
+                    counter-reset: custom-counter;
                     li {
+                        padding-left: 40px;
+                        counter-increment: custom-counter;
+                        position: relative;
                         color: #0e0e0e;
                         font-family: "Satoshi-Bold", sans-serif;
                         font-size: clamp(20px, 2vw, 26px);
                         line-height: 150%;
+                        &:not(:last-child) {
+                            &::after {
+                                content: "";
+                                position: absolute;
+                                bottom: 0;
+                                left: 0;
+                                width: 100%;
+                                height: 2px;
+                                display: block;
+                                background-color: #0e0e0e;
+                                mix-blend-mode: exclusion;
+                                z-index: 1;
+                            }
+                        }
+                        &::before {
+                            font-family: "Satoshi-Regular", sans-serif;
+                            font-size: clamp(14px, 1.5vw, 20px);
+                            content: "0" counter(custom-counter) ;
+                            position: absolute;
+                            left: 0;
+                        }
                     }
                 }
 
@@ -691,6 +719,9 @@
                     flex-direction: column;
                     gap: 20px;
                     p {
+                        width: 100%;
+                    }
+                    ol{
                         width: 100%;
                     }
                 }

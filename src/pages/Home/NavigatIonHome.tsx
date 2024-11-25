@@ -1,24 +1,25 @@
 import React, { memo } from "react";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 const menu = [
     {
         name: "about",
-        link: "/"
+        link: "/about"
     },
     {
         name: "projects",
-        link: "/"
+        link: "/projects"
     },
     {
         name: "contact",
-        link: "/"
+        link: "/contact"
     },
 ]
+
 export const NavigationHome: React.FC = memo(() => {
     return (
         <nav className="nav__home">
             {menu.map((nav, i) => (
-                <NavLink key={i} to={nav.link} className="navLink">{nav.name.toUpperCase()} <i className="ic ic-arrow"></i></NavLink>
+                <Link key={i} to={nav.link} className="navLink">{nav.name.toUpperCase()} <i className="ic ic-arrow"></i></Link>
             ))}
         </nav>
     )

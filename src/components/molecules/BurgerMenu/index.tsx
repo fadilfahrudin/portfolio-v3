@@ -1,26 +1,30 @@
 import React, { memo, useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
-import { AnimatePresence, motion } from "framer-motion";
+import { Link } from "react-router-dom";
+import { AnimatePresence, motion, Variants } from "framer-motion";
 import style from "./BurgerMenu.module.scss"
 import { useAppDispatch, useAppSelector } from "../../../utils/reduxHooks";
 import { setBurgerVisible } from "../../../redux/slice/burgerMenuSlice";
+import { useFormattedDate } from "../../../utils/useFormattedDate";
+import { useFormattedTime } from "../../../utils/useFormattedTime";
 const menu = [
     {
         name: "about",
-        link: "/"
+        link: "/about"
     },
     {
         name: "projects",
-        link: "/"
+        link: "/projects"
     },
     {
         name: "contact",
-        link: "/"
+        link: "/contact"
     },
 ]
 const BurgerMenu: React.FC = () => {
     const [isBurgerOpen, setIsBurgerOpen] = useState(false)
     const { isBurgerVisible } = useAppSelector((state) => state.burgerMenu)
+    const getDate = useFormattedDate("DD MMM")
+    const getTime = useFormattedTime({ includeSecond: true, zone: 'WIB' })
     const dispatch = useAppDispatch()
     const handleScroll = () => {
         const currentScrollY = window.scrollY;
@@ -45,8 +49,25 @@ const BurgerMenu: React.FC = () => {
         return () => {
             window.removeEventListener("scroll", handleScroll);
         };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
+
+
+    const variant: Variants = {
+        initial: {
+            y: 250
+        },
+        open: (i) => ({
+            y: 0,
+            transition: {
+                delay: i * 0.2,
+                duration: 0.5
+            }
+        }),
+        close: {
+            y: -250
+        }
+    }
     return (
         <AnimatePresence>
             {isBurgerVisible &&
@@ -57,6 +78,35 @@ const BurgerMenu: React.FC = () => {
                     </motion.button>
                 </motion.div>
             }
+
+            <AnimatePresence>
+                {isBurgerOpen &&
+                    <motion.div className={style.burgerMenuContainer} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.2, ease: "easeInOut" }}>
+                        <motion.div className={style.burgerMenuContent} initial={{ x: '100%' }} animate={{ x: 0 }} exit={{ x: '100%' }} transition={{ duration: 0.5, ease: "easeInOut" }}>
+                            <div className={style.burgerMenuList}>
+                                {
+                                    menu.map((nav, i) => (
+                                        <Link key={i} to={nav.link} className={style.burgerMenuLink}>
+                                            <i className={`ic ${style.icArrow}`}></i>
+                                            <motion.span custom={i} initial="initial" animate="open" exit="close" variants={variant}>{nav.name.toUpperCase()}</motion.span>
+                                        </Link>
+                                    ))
+                                }
+                            </div>
+                            <div className={style.burgerMenuFooter}>
+                                <div className={style.burgerMenuCopyright}>
+                                    <motion.span>©2024</motion.span>
+                                    <motion.span>FADIL FAHRUDDIN</motion.span>
+                                </div>
+                                <div className={style.burgerMenuLocalTime}>
+                                    <motion.span>LOCAL TIME</motion.span>
+                                    <motion.span>{getDate}|{getTime}</motion.span>
+                                </div>
+                            </div>
+                        </motion.div>
+                    </motion.div>
+                }
+            </AnimatePresence>
         </AnimatePresence>
     )
 }
