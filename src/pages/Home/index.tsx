@@ -22,9 +22,11 @@ import useResponsive from '../../utils/useResponsive'
 import ProjectSectionMobile from './ProjectSectionMobile';
 import BurgerMenu from '../../components/molecules/BurgerMenu';
 import { useFormattedTime } from '../../utils/useFormattedTime';
+import { useAppSelector } from '../../utils/reduxHooks';
 
 
 const Home: React.FC = () => {
+    const { isFirstLoad } = useAppSelector(state => state.loadingSlice)
     const isMobile = useResponsive('(max-width: 1024px)')
     const getTime = useFormattedTime({ zone: 'WIB' })
     const ref = useRef(null)
@@ -109,8 +111,7 @@ const Home: React.FC = () => {
     }
 
     return (
-        <main id='home'>
-           
+        <main id='home' style={isFirstLoad ? { overflow: 'hidden', position: 'fixed', pointerEvents: 'none' } : {}}>
             <BurgerMenu />
             {!isMobile ?
                 <HorizontalScroll scrollLength={270} widthSection={385}>

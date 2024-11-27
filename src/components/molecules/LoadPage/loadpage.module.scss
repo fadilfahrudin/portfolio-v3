@@ -1,0 +1,44 @@
+.container{
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    pointer-events: none;
+    cursor: none;
+    z-index: 99999999;
+    background-color: var(--light-200);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform-origin: right center;
+    .loadingText{
+        position: absolute;
+        left: 0;
+        overflow: hidden;
+        padding: 4px;
+        transform: translateY(-15px);
+        span{
+            display: inline-block;
+            font-family: "Satoshi-Bold", sans-serif;
+            font-size: 20px;
+            line-height: 100%;
+            color: var(--dark-300);
+            text-align: center;
+        }
+    }
+
+    .lineLoad{
+        position: relative;
+        width: 100%;
+        height: 2px;
+        background-color: var(--light-300);
+        .lineDefault{
+            position: absolute;
+            z-index: 1;
+            width: 100%;
+            height: 2px;
+            background-color: var(--dark-300);
+            transform: scaleX(0);
+            transform-origin: left;
+        }
+    }
+}

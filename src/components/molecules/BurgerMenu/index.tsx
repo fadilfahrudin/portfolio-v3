@@ -1,9 +1,9 @@
-import React, { memo, useEffect, useState } from "react";
+import React, { memo, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { AnimatePresence, motion, Variants } from "framer-motion";
 import style from "./BurgerMenu.module.scss"
 import { useAppDispatch, useAppSelector } from "../../../utils/reduxHooks";
-import { setBurgerVisible } from "../../../redux/slice/burgerMenuSlice";
+import { setBurgerOpen, setBurgerVisible } from "../../../redux/slice/burgerMenuSlice";
 import { useFormattedDate } from "../../../utils/useFormattedDate";
 import { useFormattedTime } from "../../../utils/useFormattedTime";
 const menu = [
@@ -21,8 +21,7 @@ const menu = [
     },
 ]
 const BurgerMenu: React.FC = () => {
-    const [isBurgerOpen, setIsBurgerOpen] = useState(false)
-    const { isBurgerVisible } = useAppSelector((state) => state.burgerMenu)
+    const { isBurgerVisible, isBurgerOpen } = useAppSelector((state) => state.burgerMenu)
     const getDate = useFormattedDate("DD MMM")
     const getTime = useFormattedTime({ includeSecond: true, zone: 'WIB' })
     const dispatch = useAppDispatch()
@@ -69,15 +68,18 @@ const BurgerMenu: React.FC = () => {
         }
     }
     return (
-        <AnimatePresence>
-            {isBurgerVisible &&
-                <motion.div className={style.burgerMenu}>
-                    <motion.button type="button" onClick={() => setIsBurgerOpen(!isBurgerOpen)} className={style.burgerMenuIcon} initial={{ scale: 0 }} animate={{ scale: 1 }} exit={{ scale: 0 }} transition={{ duration: 0.5, ease: "easeInOut" }} >
-                        <motion.span initial={{ y: -5 }} animate={isBurgerOpen ? { rotate: 45, y: 1 } : { rotate: 0, y: -5 }} transition={{ duration: 0.3, ease: "easeInOut" }} className={style.line}></motion.span>
-                        <motion.span initial={{ y: 5 }} animate={isBurgerOpen ? { rotate: -45, y: -1 } : { rotate: 0, y: 5 }} transition={{ duration: 0.3, ease: "easeInOut" }} className={style.line}></motion.span>
-                    </motion.button>
-                </motion.div>
-            }
+        <>
+            <AnimatePresence>
+                {isBurgerVisible &&
+                    <motion.div className={style.burgerMenu}>
+                        <motion.button type="button" onClick={() => dispatch(setBurgerOpen(!isBurgerOpen))} className={style.burgerMenuIcon} initial={{ scale: 0 }} animate={{ scale: 1 }} exit={{ scale: 0 }} transition={{ duration: 0.5, ease: "circOut" }} >
+                            <motion.span initial={{ y: -5 }} animate={isBurgerOpen ? { rotate: 45, y: 1 } : { rotate: 0, y: -5 }} transition={{ duration: 0.3, ease: "easeInOut" }} className={style.line}></motion.span>
+                            <motion.span initial={{ y: 5 }} animate={isBurgerOpen ? { rotate: -45, y: -1 } : { rotate: 0, y: 5 }} transition={{ duration: 0.3, ease: "easeInOut" }} className={style.line}></motion.span>
+                        </motion.button>
+                    </motion.div>
+                }
+            </AnimatePresence>
+
 
             <AnimatePresence>
                 {isBurgerOpen &&
@@ -107,7 +109,7 @@ const BurgerMenu: React.FC = () => {
                     </motion.div>
                 }
             </AnimatePresence>
-        </AnimatePresence>
+        </>
     )
 }
 

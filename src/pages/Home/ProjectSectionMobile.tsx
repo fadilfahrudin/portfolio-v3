@@ -4,14 +4,14 @@ import { NavLink } from 'react-router-dom';
 import { VideoComponent } from '../../components/atomic/Video';
 import InViewSection from '../../components/molecules/InViewSection';
 
-import videoInews from "../../assets/video/inews.mp4"
-import videoWebMovie from "../../assets/video/web-movie.mp4"
-import videoUiDesiign from "../../assets/video/mobile-design.mp4"
+import videoInews from "../../assets/video/inews-compresed.mp4"
+import videoWebMovie from "../../assets/video/web-movie-compressed.mp4"
+import videoUiDesiign from "../../assets/video/mobile-design-compressed.mp4"
+import videoGlums from "../../assets/video/glums-compresed.mp4"
 import bgGlums from "../../assets/img/glums.jpg"
 import bgInews from "../../assets/img/inews.jpg"
 import bgWebMovie from "../../assets/img/movie-web.jpg"
 import bgUiDesign from "../../assets/img/uidesign.jpg"
-import videoGlums from "../../assets/video/glums-record.mp4"
 
 
 interface ProjectItemProps {

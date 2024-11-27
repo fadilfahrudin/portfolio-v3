@@ -1,6 +1,5 @@
 import React from 'react'
 import style from "./errorStyle.module.scss"
-import { Link } from 'react-router-dom'
 import image from "../../assets/img/development.png"
 import { motion } from "framer-motion"
 const NotAvailablePage: React.FC = () => {
@@ -26,12 +25,12 @@ const NotAvailablePage: React.FC = () => {
             <motion.section className={style.NotAvailablePage}>
                 <motion.h1 variants={variant} initial="hidden" animate="visible" custom={1}>Oops! Page Not Available Yet</motion.h1>
                 <motion.p variants={variant} initial="hidden" animate="visible" custom={2}>Don’t worry, something amazing is on the way! </motion.p>
-                <Link to="/">
+                <a href="/">
                     <motion.span variants={variant} initial="hidden" animate="visible" custom={4}>
                         Feel free to explore other pages or contact us for more information.
                         <i className={`ic ${style.icArrow}`}></i>
                     </motion.span>
-                </Link>
+                </a>
                 <img src={image} alt="under development" width={"100%"} height={"100%"} loading='lazy' />
             </motion.section>
         </main>
