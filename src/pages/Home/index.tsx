@@ -255,7 +255,7 @@ const Home: React.FC = () => {
                             <div className='contact-footer'>
                                 <div>
                                     <span>AVAILABLE AT</span>
-                                    <span>JAKARTA, INDONESIAN</span>
+                                    <span>JAKARTA, INDONESIA</span>
                                 </div>
                                 <div>
                                     <span>FEEL FREE TO REACH OUT TO ME</span>
