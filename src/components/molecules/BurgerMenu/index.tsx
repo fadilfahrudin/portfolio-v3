@@ -71,12 +71,12 @@ const BurgerMenu: React.FC = () => {
         <>
             <AnimatePresence>
                 {isBurgerVisible &&
-                    <motion.div className={style.burgerMenu}>
+                    <div className={style.burgerMenu}>
                         <motion.button type="button" onClick={() => dispatch(setBurgerOpen(!isBurgerOpen))} className={style.burgerMenuIcon} initial={{ scale: 0 }} animate={{ scale: 1 }} exit={{ scale: 0 }} transition={{ duration: 0.5, ease: "circOut" }} >
                             <motion.span initial={{ y: -5 }} animate={isBurgerOpen ? { rotate: 45, y: 1 } : { rotate: 0, y: -5 }} transition={{ duration: 0.3, ease: "easeInOut" }} className={style.line}></motion.span>
                             <motion.span initial={{ y: 5 }} animate={isBurgerOpen ? { rotate: -45, y: -1 } : { rotate: 0, y: 5 }} transition={{ duration: 0.3, ease: "easeInOut" }} className={style.line}></motion.span>
                         </motion.button>
-                    </motion.div>
+                    </div>
                 }
             </AnimatePresence>
 

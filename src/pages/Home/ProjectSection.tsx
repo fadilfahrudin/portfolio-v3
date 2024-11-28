@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react'
+import React, { memo, useEffect, useRef } from 'react'
 import ProjectItem from './ProjectItem';
 import { useScroll, useTransform, motion } from 'framer-motion';
 import videoGlums from "../../assets/video/glums-compresed.mp4"
@@ -32,4 +32,4 @@ const ProjectSection: React.FC = () => {
     )
 }
 
-export default ProjectSection
+export default memo(ProjectSection)

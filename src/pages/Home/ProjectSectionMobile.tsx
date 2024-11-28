@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo, useEffect, useRef, useState } from 'react'
 import { motion } from 'framer-motion';
 import { NavLink } from 'react-router-dom';
 import { VideoComponent } from '../../components/atomic/Video';
@@ -22,7 +22,16 @@ interface ProjectItemProps {
     link: string;
     techStack: string[];
 }
-const ProjectItem: React.FC<ProjectItemProps> = ({ createdAt, title, image, video, link, techStack }) => {
+const ProjectItem: React.FC<ProjectItemProps> =  memo(({ createdAt, title, image, video, link, techStack }) => {
+    const [isInViewVideo, setIsInViewVideo] = useState(false)
+    const videoRef = useRef<HTMLVideoElement>(null);
+    useEffect(() => {
+        if (isInViewVideo) {
+            videoRef.current?.play()
+        } else {
+            videoRef.current?.pause()
+        }
+    }, [isInViewVideo])
     const variants = {
         visible: (i: number) => ({
             y: 0,
@@ -37,44 +46,48 @@ const ProjectItem: React.FC<ProjectItemProps> = ({ createdAt, title, image, vide
                 duration: 0.3
             }
         })
-    }
+    } 
     return (
-        <motion.div className='projectSectionMobile__home--projectItem'>
+        <div className='projectSectionMobile__home--projectItem'>
             <NavLink to={'#'} className='projectDisplayMobile__home'>
                 <InViewSection className='projectWrapper' amount={0.9}>
-                    {(isInView) => (
+                    {(isInView) => {
+                        setIsInViewVideo(isInView)
+                        return(
                         <>
-                            <VideoComponent src={video} className={`video-project ${isInView ? '' : 'blurEffect'}`} />
-                            <motion.img className='bg-project' src={image} alt="profile" width={1000} height={1000} />
+                            <VideoComponent src={video} ref={videoRef} className={`video-project ${isInView ? '' : 'blurEffect'}`} />
+                            <img className='bg-project' src={image} alt="profile" width={1000} height={1000} />
                         </>
-                    )}
+                        )
+                    }
+                    }
                 </InViewSection>
             </NavLink>
             <InViewSection className="projectDescriptionMobile__home" amount={0.1}>
                 {(isInView) => (
                     <>
-                        <motion.div className="projectInfo-1" >
+                        <div className="projectInfo-1" >
                             <motion.span className="creation-date" initial="hidden" animate={isInView ? 'visible' : 'hidden'} variants={variants} custom={1}>{createdAt}</motion.span>
-                        </motion.div>
+                        </div>
                         <NavLink className="projectInfo-2" to={link} rel='noreferrer noopener' target='_blank'>
                             <motion.span className="title-project" initial="hidden" animate={isInView ? 'visible' : 'hidden'} variants={variants} custom={2}>{title}</motion.span>
                         </NavLink>
-                        <motion.div className="projectInfo-3">
-                            <motion.ul className="project-tech">
+                        <div className="projectInfo-3">
+                            <ul className="project-tech">
                                 {
                                     techStack.map((tech, i) => (
                                         <motion.li key={i} initial="hidden" animate={isInView ? 'visible' : 'hidden'} variants={variants} custom={2.5 + i}>{tech}</motion.li>
                                     ))
                                 }
-                            </motion.ul>
-                        </motion.div>
+                            </ul>
+                        </div>
                         <motion.a href={link} target="_blank" rel='noreferrer noopener' initial="hidden" animate={isInView ? 'visible' : 'hidden'} variants={variants} custom={5} type='button' className='btn-projectMobile'>Visit</motion.a>
                     </>
                 )}
             </InViewSection>
-        </motion.div>
+        </div>
     )
-}
+})
 
 const ProjectSectionMobile: React.FC = () => {
     return (

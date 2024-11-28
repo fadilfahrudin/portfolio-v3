@@ -1,6 +1,6 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
-import './horizontal-scroll.scss'
+import styles from './horizontal-scroll.module.scss'
 
 interface Props {
     children: React.ReactNode
@@ -16,8 +16,8 @@ const HorizontalScroll = ({ children, widthSection, scrollLength }: Props) => {
     const x = useTransform(scrollYProgress, [0, 1], ['0vw', `-${scrollLength}vw`]);
 
     return (
-        <motion.section ref={targetRef} className="horizontalScrollContainer" style={{ height: `${widthSection}vh` }}>
-            <motion.div className="horizontalScrollSection">
+        <motion.section ref={targetRef} className={styles.horizontalScrollContainer} style={{ height: `${widthSection}vh` }}>
+            <motion.div className={styles.horizontalScrollSection}>
                 <motion.div style={{ x, display: 'flex' }}>
                     {children}
                 </motion.div>

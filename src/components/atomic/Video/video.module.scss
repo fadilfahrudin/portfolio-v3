@@ -1,0 +1,6 @@
+.video {
+    pointer-events: none;
+    &::-webkit-media-controls {
+        display: none !important;
+    }
+}

@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /private/      # Halaman atau folder yang tidak boleh diindeks
+Allow: /
+
+Sitemap: https://fadilfahrudin.my.id/sitemap.xml

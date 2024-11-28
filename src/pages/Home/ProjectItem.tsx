@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 import { useScroll, useTransform, motion, useInView } from "framer-motion";
-import { useRef, FC, useEffect } from "react";
+import { useRef, FC, useEffect, memo } from "react";
 import { VideoComponent } from "../../components/atomic/Video";
 
 
@@ -62,35 +62,35 @@ const ProjectItem: FC<ProjectItemProps> = ({ index, createdAt, title, image, vid
 
     return (
         <motion.section className='projectItem' style={{ width }}>
-            <motion.div>
+            <div>
                 <NavLink target="_blank" rel="noreferrer noopener" to={link} className='projectDisplay__home'>
                     <motion.div className="projectWrapper" style={{ y, scale }} >
                         <VideoComponent ref={videoRef} src={video} className={`video-project ${isInViewVideo ? '' : 'blurEffect'}`} />
-                        <motion.img className='bg-project' src={image} alt="profile" width={1000} height={1000} />
+                        <img className='bg-project' src={image} alt="profile" width={1000} height={1000} />
                     </motion.div>
                 </NavLink>
-            </motion.div>
-            <motion.div className="projectDescription__home">
-                <motion.div className="projectInfo-1" >
+            </div>
+            <div className="projectDescription__home">
+                <div className="projectInfo-1" >
                     <motion.a target="_blank" rel="noreferrer noopener" href={link} className="btn-project" custom={1} animate={isInView ? 'visible' : 'hidden'} variants={variants}></motion.a>
                     <motion.span className="creation-date" custom={1} animate={isInView ? 'visible' : 'hidden'} variants={variants}>{createdAt}</motion.span>
-                </motion.div>
+                </div>
                 <NavLink className="projectInfo-2" rel="noreferrer noopener" to={link} target="_blank">
                     <motion.span className="title-project" custom={2} animate={isInView ? 'visible' : 'hidden'} variants={variants}>{title}</motion.span>
                 </NavLink>
-                <motion.div className="projectInfo-3">
-                    <motion.span className="project-number">0{index}</motion.span>
-                    <motion.ul className="project-tech">
+                <div className="projectInfo-3">
+                    <span className="project-number">0{index}</span>
+                    <ul className="project-tech">
                         {
                             techStack.map((item, index) => (
                                 <motion.li key={index} custom={3 + index} animate={isInView ? 'visible' : 'hidden'} variants={variants}>{item.toUpperCase()}</motion.li>
                             ))
                         }
-                    </motion.ul>
-                </motion.div>
-            </motion.div>
+                    </ul>
+                </div>
+            </div>
         </motion.section>
     )
 }
 
-export default ProjectItem
+export default memo(ProjectItem)

@@ -1,6 +1,7 @@
 import React, { useRef, useState } from 'react'
 import HorizontalScroll from '../../components/molecules/HorizontalScroll'
 import "./home.scss";
+
 import { useScroll, useTransform, motion, AnimatePresence } from 'framer-motion';
 import { Link, NavLink } from 'react-router-dom';
 import myProfile from '../../assets/dummy/fadil-fahrudin.png';
@@ -122,14 +123,14 @@ const Home: React.FC = () => {
                         {(isInView) => (
                             <motion.div ref={ref} className='imageSectionWrapper__home' style={{ width }}>
                                 <motion.section className='imageSection__home' style={{ width }}>
-                                    <NavLink to={'#'} target='_blank'>
+                                    <NavLink to={'https://fadilfahrudin.my.id/resume--20240908.pdf'}  target='_blank' rel="noopener noreferrer">
                                         <motion.img className='img-resume img-profile' src={myProfile} alt="profile" width={1000} height={1000} style={{ y: yImg1, scale }} />
                                         <motion.p initial={{ opacity: 0, y: 180 }} animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 180 }} transition={{ duration: 0.5, ease: 'easeInOut' }} ref={refText} className='desc__imageSection img-resume'>Frontend Developer with 4 years of experience, Passionate about developing responsive websites and mobile applications using<b className='reactIcon img-resume'>React.</b> Ready to bring innovative ideas to the digital realm!</motion.p>
                                     </NavLink>
                                 </motion.section>
 
                                 <motion.section className='imageSection__home' style={{ width }}>
-                                    <NavLink to={'#'} target='_blank'>
+                                    <NavLink to={'https://fadilfahrudin.my.id/resume--20240908.pdf'}  target='_blank' rel="noopener noreferrer">
                                         <motion.img className='img-resume img-profile' src={myProfile} alt="profile" width={1000} height={1000} style={{ y: yImg2, scale, x }} />
                                     </NavLink>
                                 </motion.section>
@@ -143,17 +144,17 @@ const Home: React.FC = () => {
                     <InViewSection margin={"0% -72% 0% 0%"} className='expertises__home'>
                         {(isInView) => (
                             <>
-                                <motion.div className='expertises__home--title'>
+                                <div className='expertises__home--title'>
                                     {expertise.map((char, i) => (
                                         <motion.span key={i} custom={i} animate={isInView ? 'active' : 'hidden'} variants={expertiseStack}>{char}</motion.span>
                                     ))}
-                                </motion.div>
-                                <motion.div className='expertises__home--desc'>
-                                    <motion.div className='desc__P'>
+                                </div>
+                                <div className='expertises__home--desc'>
+                                    <div className='desc__P'>
                                         <motion.p initial={{ y: 250 }} animate={isInView ? { y: 0 } : { y: 250 }} transition={{ delay: 0.2, duration: 0.5 }} >
                                             My mission is to make magic by delivering a visually captivating and responsive user interface, supported by fast performance, providing a compelling advantage for your business with these techs:
                                         </motion.p>
-                                    </motion.div>
+                                    </div>
                                     <ul className='desc__list-stack'>
                                         <motion.li custom={1} animate={isInView ? 'active' : 'hidden'} variants={stack}><img src={IcHtml} alt="Javascript" className='ic-stacks' width={32} height={32} /></motion.li>
                                         <motion.li custom={2} animate={isInView ? 'active' : 'hidden'} variants={stack}><img src={IcJs} alt="Javascript" className='ic-stacks' width={32} height={32} /></motion.li>
@@ -166,7 +167,7 @@ const Home: React.FC = () => {
                                         <motion.li custom={9} animate={isInView ? 'active' : 'hidden'} variants={stack}><img src={IcBootstrap} alt="Javascript" className='ic-stacks' width={32} height={32} /></motion.li>
                                         <motion.li custom={10} animate={isInView ? 'active' : 'hidden'} variants={stack}><img src={IcMysql} alt="Javascript" className='ic-stacks' width={32} height={32} /></motion.li>
                                     </ul>
-                                </motion.div>
+                                </div>
                             </>
                         )}
                     </InViewSection>
@@ -176,7 +177,7 @@ const Home: React.FC = () => {
                     <section className='introSection__home'>
                         <IntrodoctionSection />
                     </section>
-                    <NavLink to={'#'} target='_blank'>
+                    <NavLink to={'https://fadilfahrudin.my.id/resume--20240908.pdf'} target='_blank' rel="noopener noreferrer">
                         <InViewSection className='imageSectionWrapperMobile__home' amount={0.4}>
                             {(isInView) => (
                                 <>
@@ -191,17 +192,17 @@ const Home: React.FC = () => {
                     <InViewSection className='expertisesMobile__home'>
                         {(isInView) => (
                             <>
-                                <motion.div className='expertisesMobile__home--title'>
+                                <div className='expertisesMobile__home--title'>
                                     {expertise.map((char, i) => (
                                         <motion.span key={i} custom={i} animate={isInView ? 'active' : 'hidden'} variants={expertiseStack}>{char}</motion.span>
                                     ))}
-                                </motion.div>
-                                <motion.div className='expertisesMobile__home--desc'>
-                                    <motion.div className='desc__P'>
+                                </div>
+                                <div className='expertisesMobile__home--desc'>
+                                    <div className='desc__P'>
                                         <motion.p initial={{ y: 250 }} animate={isInView ? { y: 0 } : { y: 250 }} transition={{ delay: 0.2, duration: 0.5 }} >
                                             My mission is to make magic by delivering a visually captivating and responsive user interface, supported by fast performance, providing a compelling advantage for your business with these techs:
                                         </motion.p>
-                                    </motion.div>
+                                    </div>
                                     <ul className='desc__list-stack'>
                                         <motion.li custom={1} animate={isInView ? 'active' : 'hidden'} variants={stack}><img src={IcHtml} alt="Javascript" className='ic-stacks' width={32} height={32} /></motion.li>
                                         <motion.li custom={2} animate={isInView ? 'active' : 'hidden'} variants={stack}><img src={IcJs} alt="Javascript" className='ic-stacks' width={32} height={32} /></motion.li>
@@ -214,14 +215,14 @@ const Home: React.FC = () => {
                                         <motion.li custom={9} animate={isInView ? 'active' : 'hidden'} variants={stack}><img src={IcBootstrap} alt="Javascript" className='ic-stacks' width={32} height={32} /></motion.li>
                                         <motion.li custom={10} animate={isInView ? 'active' : 'hidden'} variants={stack}><img src={IcMysql} alt="Javascript" className='ic-stacks' width={32} height={32} /></motion.li>
                                     </ul>
-                                </motion.div>
+                                </div>
                             </>
                         )}
                     </InViewSection>
                 </>
             }
             <section id='contact' ref={contactRef} className='expertise-list__home' >
-                <motion.div className='expertise__list' style={{ top: 'calc(62px * 1)' }}>
+                <div className='expertise__list' style={{ top: 'calc(62px * 1)' }}>
                     <motion.div className='list__title' style={{ scale: scale3 }}>WEB DEVELOPMENT</motion.div>
                     <div className='list__body'>
                         <p>With my front-end web developer expertise, I can translate designs into programming code to bring websites to life with captivating interactivity. I deliver visually appealing aesthetics but also ensure functionality by implementing cutting-edge technologies. Furthermore, my backend development skills enable me to create RESTful APIs that enhance interaction between the website and server, elevating the user experience.</p>
@@ -232,8 +233,8 @@ const Home: React.FC = () => {
                             <li>Motion & Animation</li>
                         </ol>
                     </div>
-                </motion.div>
-                <motion.div className='expertise__list' style={{ top: 'calc(62px * 2)' }}>
+                </div>
+                <div className='expertise__list' style={{ top: 'calc(62px * 2)' }}>
                     <motion.div className='list__title'>MOBILE DEVELOPMENT</motion.div>
                     <div className='list__body'>
                         <p>As a mobile application developer with expertise in React Native, I combine design aesthetics with technological performance to create intuitive and responsive applications. I excel at transforming concepts into real-world applications, delivering engaging interfaces while ensuring optimal performance across various devices. Backed by my backend development skills, I build RESTful APIs that enhance the interaction between applications and servers, providing a seamless and efficient user experience.</p>
@@ -242,23 +243,23 @@ const Home: React.FC = () => {
                             <li>RESTfull API</li>
                         </ol>
                     </div>
-                </motion.div>
+                </div>
                 <InViewSection className='contact__home' margin="0px 0px -300px 0px">
                     {(isInView) => (
                         <motion.div className='contact__home--wrapper' style={{ scale: scale2 }}>
-                            <motion.div className='lets-connect'>
-                                <motion.div className='connect-title'><motion.span animate={isInView ? "active" : "hidden"} variants={contactStack} custom={1}>LETS CONNECT &</motion.span> </motion.div>
-                                <motion.div className='magic-title'><motion.span animate={isInView ? "active" : "hidden"} variants={contactStack} custom={2}>MAKE A MAGIC</motion.span></motion.div>
+                            <div className='lets-connect'>
+                                <div className='connect-title'><motion.span animate={isInView ? "active" : "hidden"} variants={contactStack} custom={1}>LETS CONNECT &</motion.span> </div>
+                                <div className='magic-title'><motion.span animate={isInView ? "active" : "hidden"} variants={contactStack} custom={2}>MAKE A MAGIC</motion.span></div>
                                 <motion.a href='mailto:fadilfahrudin32@gmail.com' className='btn-send-email' animate={isInView ? "active" : "hidden"} variants={contactStack} custom={3}>Send email <span><i className='ic ic-arrow'></i></span></motion.a>
-                            </motion.div>
-                            <motion.div className='contact-footer'>
+                            </div>
+                            <div className='contact-footer'>
                                 <div>
-                                    <motion.span>AVAILABLE AT</motion.span>
-                                    <motion.span>JAKARTA, INDONESIAN</motion.span>
+                                    <span>AVAILABLE AT</span>
+                                    <span>JAKARTA, INDONESIAN</span>
                                 </div>
                                 <div>
-                                    <motion.span>FEEL FREE TO REACH OUT TO ME</motion.span>
-                                    <motion.button type='button' className='btn-copy' onClick={handleCopyText}>
+                                    <span>FEEL FREE TO REACH OUT TO ME</span>
+                                    <button type='button' className='btn-copy' onClick={handleCopyText}>
                                         fadilfahrudin32@gmail.com
                                         <i className='ic ic-copy'></i>
                                         <AnimatePresence>
@@ -266,9 +267,9 @@ const Home: React.FC = () => {
                                                 isCopy && <motion.span initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, ease: 'easeInOut' }} exit={{ opacity: 1, y: 10 }} className='text-copied'>Copied!</motion.span>
                                             }
                                         </AnimatePresence>
-                                    </motion.button>
+                                    </button>
                                 </div>
-                            </motion.div>
+                            </div>
                         </motion.div>
                     )}
                 </InViewSection>
@@ -279,7 +280,7 @@ const Home: React.FC = () => {
                         <>
                             <ul className='footer__home--navigation-wrapper'>
                                 <li>
-                                    <motion.span>CREATED BY THESE TECHS:</motion.span>
+                                    <span>CREATED BY THESE TECHS:</span>
                                     <ul>
                                         <li><motion.span animate={isInView ? "active" : "hidden"} custom={1} variants={stack}>REACT</motion.span></li>
                                         <li><motion.span animate={isInView ? "active" : "hidden"} custom={2} variants={stack}>FRAMER MOTION</motion.span></li>
@@ -288,7 +289,7 @@ const Home: React.FC = () => {
                                     </ul>
                                 </li>
                                 <li>
-                                    <motion.span>SOCIAL MEDIA</motion.span>
+                                    <span>SOCIAL MEDIA</span>
                                     <ul>
                                         <li><motion.span animate={isInView ? "active" : "hidden"} custom={1} variants={stack}><Link to="https://instagram.com/fadilfahrudin" target='_blank'>INSTAGRAM</Link></motion.span></li>
                                         <li><motion.span animate={isInView ? "active" : "hidden"} custom={2} variants={stack}><Link to="https://github.com/fadilfahrudin" target='_blank'>GITHUB</Link></motion.span></li>
@@ -296,7 +297,7 @@ const Home: React.FC = () => {
                                     </ul>
                                 </li>
                                 <li>
-                                    <motion.span>NAVIGATION</motion.span>
+                                    <span>NAVIGATION</span>
                                     <ul>
                                         <li><motion.span animate={isInView ? "active" : "hidden"} custom={1} variants={stack}><Link to="/about">ABOUT</Link></motion.span></li>
                                         <li><motion.span animate={isInView ? "active" : "hidden"} custom={2} variants={stack}><Link to="/projects">PROJECTS</Link></motion.span></li>
@@ -306,12 +307,12 @@ const Home: React.FC = () => {
                             </ul>
                             <div className='footer__home--licence'>
                                 <div>
-                                    <motion.span>©2024</motion.span>
-                                    <motion.span>FADIL FAHRUDDIN</motion.span>
+                                    <span>©2024</span>
+                                    <span>FADIL FAHRUDDIN</span>
                                 </div>
                                 <div>
-                                    <motion.span>LOCAL TIME</motion.span>
-                                    <motion.span>{getTime}</motion.span>
+                                    <span>LOCAL TIME</span>
+                                    <span>{getTime}</span>
                                 </div>
                             </div>
                         </>

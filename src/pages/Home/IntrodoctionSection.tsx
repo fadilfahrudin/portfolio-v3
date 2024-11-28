@@ -13,7 +13,7 @@ export const IntrodoctionSection: React.FC = memo(() => {
     }
 
     return (
-        <motion.div className='introduction__home'>
+        <div className='introduction__home'>
             <motion.div initial={{y:100, opacity:0}} animate={!isFirstLoad && {y:0, opacity:1}} transition={{duration: 0.5, delay: 1, ease:'circOut'}}>
                 <NavigationHome />
             </motion.div>
@@ -32,7 +32,7 @@ export const IntrodoctionSection: React.FC = memo(() => {
                 <motion.span initial="hidden" animate={!isFirstLoad && "visible"} variants={variants} custom={4}>I</motion.span>
                 <motion.span initial="hidden" animate={!isFirstLoad && "visible"} variants={variants} custom={5}>L</motion.span>
             </div>
-            <motion.p initial={{opacity:0}} animate={!isFirstLoad && {opacity:1}} transition={{duration: 1, delay: 1.5 ,ease:'circIn'}} className="myDesc">is my name. I can translate something digital problem into an application simply but not reduce the desired needs, elegantly, and responsive. and now I am available as a freelancer to help you.</motion.p>
-        </motion.div>
+            <motion.p initial={{opacity:0}} animate={!isFirstLoad && {opacity:1}} transition={{duration: 1, delay: 1.5 ,ease:'circIn'}} className='myDesc'>is my name. I can translate something digital problem into an application simply but not reduce the desired needs, elegantly, and responsive. and now I am available as a freelancer to help you.</motion.p>
+        </div>
     )
 })
