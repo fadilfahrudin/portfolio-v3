@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import { useScroll, useTransform, motion, useInView } from "framer-motion";
 import { useRef, FC, useEffect, memo } from "react";
-import { VideoComponent } from "../../components/atomic/Video";
+import VideoComponent from "../../components/atomic/Video";
 
 
 
@@ -66,7 +66,7 @@ const ProjectItem: FC<ProjectItemProps> = ({ index, createdAt, title, image, vid
                 <NavLink target="_blank" rel="noreferrer noopener" to={link} className='projectDisplay__home'>
                     <motion.div className="projectWrapper" style={{ y, scale }} >
                         <VideoComponent ref={videoRef} src={video} className={`video-project ${isInViewVideo ? '' : 'blurEffect'}`} />
-                        <img className='bg-project' src={image} alt="profile" width={1000} height={1000} />
+                        <img className='bg-project' src={image} alt="profile" loading="lazy" />
                     </motion.div>
                 </NavLink>
             </div>

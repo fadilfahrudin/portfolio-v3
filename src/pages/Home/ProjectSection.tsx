@@ -1,14 +1,14 @@
 import React, { memo, useEffect, useRef } from 'react'
 import ProjectItem from './ProjectItem';
 import { useScroll, useTransform, motion } from 'framer-motion';
-import videoGlums from "../../assets/video/glums-compresed.mp4"
-import videoInews from "../../assets/video/inews-compresed.mp4"
-import videoWebMovie from "../../assets/video/web-movie-compressed.mp4"
-import videoUiDesiign from "../../assets/video/mobile-design-compressed.mp4"
-import bgGlums from "../../assets/img/glums.jpg"
-import bgInews from "../../assets/img/inews.jpg"
-import bgWebMovie from "../../assets/img/movie-web.jpg"
-import bgUiDesign from "../../assets/img/uidesign.jpg"
+import videoGlums from "../../assets/video/glums-compresed-v2.mp4"
+import videoInews from "../../assets/video/inews-compresed-v2.mp4"
+import videoWebMovie from "../../assets/video/web-movie-compressed-v2.mp4"
+import videoUiDesiign from "../../assets/video/mobile-design-compressed-v2.mp4"
+import bgGlums from "../../assets/img/glums-v3.jpg"
+import bgInews from "../../assets/img/inews-v3.jpg"
+import bgWebMovie from "../../assets/img/movie-web-v3.jpg"
+import bgUiDesign from "../../assets/img/uidesign-v3.jpg"
 
 const ProjectSection: React.FC = () => {
     const ref = useRef(null)
