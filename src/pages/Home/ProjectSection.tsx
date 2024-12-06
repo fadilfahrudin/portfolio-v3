@@ -27,7 +27,7 @@ const ProjectSection: React.FC = () => {
             <ProjectItem index={1} image={bgGlums} video={videoGlums} link='https://glums.id' title='GLUMS.ID' createdAt={'JUN 2024'} techStack={['ReactJS', 'SASS', 'Framer Motion', 'Redux']} />
             <ProjectItem index={2} image={bgInews} video={videoInews} link='https://inews.id' title='iNews.id' createdAt={'2024'} techStack={['JQuery', 'Javascript', 'SASS', 'HTML']} />
             <ProjectItem index={3} image={bgWebMovie} video={videoWebMovie} link='https://web-movie-navy.vercel.app' title='WEB MOVIE' createdAt={'DEC 2023'} techStack={['NextJS', 'SASS', 'GSAP', 'Redux']} />
-            <ProjectItem index={4} image={bgUiDesign} video={videoUiDesiign} link='#' title='Donation App' createdAt={'JUN 2020'} techStack={['React Native', 'Redux', 'React Reanimated']} />
+            <ProjectItem index={4} image={bgUiDesign} video={videoUiDesiign} link='#' title='Design Mobile App' createdAt={'JUN 2020'} techStack={['Figma']} />
         </motion.section>
     )
 }
