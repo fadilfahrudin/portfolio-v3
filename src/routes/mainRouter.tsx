@@ -8,6 +8,7 @@ import { AnimatePresence } from 'framer-motion'
 import { useAppDispatch, useAppSelector } from '../utils/reduxHooks'
 import { setIsFirstLoad } from '../redux/slice/loadingSlice'
 import PageNotFound from '../pages/Error/PageNotFound'
+import Projects from '../pages/Projetcs'
 export default function MainRouter() {
     const { isFirstLoad } = useAppSelector(state => state.loadingSlice)
     const dispatch = useAppDispatch()
@@ -39,7 +40,7 @@ export default function MainRouter() {
                 <Routes>
                     <Route path='/' element={<Home />} />
                     <Route path='/about' element={<NotAvailablePage />} />
-                    <Route path='/projects' element={<NotAvailablePage />} />
+                    <Route path='/projects' element={<Projects />} />
                     <Route path='/contact' element={<NotAvailablePage />} />
                     <Route path='*' element={<PageNotFound />} />
                 </Routes>
